@@ -17,7 +17,7 @@ export default function Register() {
   
   return (
     <View>
-         <Text onPress={navigateToRegisterRent}>Register</Text>
+         <Text onPress={navigateToRegisterRent}>Register ihu</Text>
          <Text onPress={navigateToLogin}>Login</Text>
     </View>
   );
