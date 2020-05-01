@@ -11,7 +11,7 @@ import ModalMenu from '../../Components/ModalMenu';
 import { 
   Container, 
   PlusButton, 
-  ContainerIcon, 
+  ContainerTitle, 
   Leftlover, 
   TextLeftlover, 
   MoneyLeftlover,
@@ -58,9 +58,6 @@ export default function Home() {
 
   return (
     <Container>
-        <ContainerIcon>
-          
-        </ContainerIcon>
         <ContainerLeftlover>
           <Leftlover>
             <TitleLeftlover>
@@ -82,7 +79,7 @@ export default function Home() {
                 horizontal={true}
                 renderItem={(item) => (
                   <Card onPress={navigateToSector}>
-                    <CardTitle>Alimentação</CardTitle>
+                    <ContainerTitle><CardTitle>Alimentação</CardTitle></ContainerTitle>
                     <Chart>
                       <Progress.Pie size={88} color="rgba(240, 120, 90, 1)" unfilledColor="rgba(240, 196, 25, 0.9)" borderWidth={0} indeterminate={false} progress={0.7} />
                     </Chart>
@@ -102,7 +99,7 @@ export default function Home() {
                 horizontal={true}
                 renderItem={(item) => (
                   <Card onPress={navigateToGoal}>
-                    <CardTitle>Alimentação</CardTitle>
+                    <ContainerTitle><CardTitle>Alimentação</CardTitle></ContainerTitle>
                     <Chart>
                       <Progress.Pie size={88} color="#482483" unfilledColor="#19F062" borderWidth={0} indeterminate={false} progress={0.9} />
                     </Chart>
@@ -123,7 +120,7 @@ export default function Home() {
                 renderItem={(item) => (
                   <Card onPress={navigateToGoal}>
                     <View>
-                      <DebtTitleCard>Alimentação</DebtTitleCard>
+                    <ContainerTitle><CardTitle>Alimentação</CardTitle></ContainerTitle>
                       <ValueCard>R$ 30.020,00</ValueCard>
                       <DeadlineCard>Prazo: 20/12/2020</DeadlineCard>
                       
