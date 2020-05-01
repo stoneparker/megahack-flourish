@@ -2,17 +2,9 @@ import styled from 'styled-components/native';
 import Constants from 'expo-constants';
 
 
-// .attrs({
-//      contentContainerStyle: {
-//           flexGrow: 1,
-//           alignItems: 'center',
-//      }
-// })`
-
 export const Container = styled.View`
      flex: 1;
-     /* align-items: center; */
-     padding-top: ${Constants.statusBarHeight + 20}px;
+     padding-top: ${Constants.statusBarHeight + 10}px;
 `;
 
 export const PlusButton = styled.TouchableOpacity`
@@ -30,8 +22,10 @@ export const PlusButton = styled.TouchableOpacity`
      background: #F8D332;
      /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25); */
 `; 
- 
-export const Text = styled.Text`
+
+export const ContainerIcon = styled.View`
+     /* align-items: flex-end; */
+     margin: 0 20px 5px 20px;
 `;
 
 export const ContainerLeftlover = styled.View`
@@ -47,13 +41,18 @@ export const Leftlover = styled.View`
      margin-bottom: 20px;
 `;
 
+export const TitleLeftlover = styled.View`
+     flex-direction: row;
+     justify-content: space-between;
+`;
+
 export const TextLeftlover = styled.Text`
      font-size: 24px;
 `;
 
 export const MoneyLeftlover = styled.Text`
      font-size: 30px;
-     text-align: right;
+     text-align: center;
 `;
 
 export const ContainerScrolls = styled.ScrollView``;
@@ -83,6 +82,8 @@ export const Card = styled.TouchableOpacity.attrs({
      margin: 10px;
      border-radius: 13px;
      padding: 15px;
+
+     justify-content: space-between;
 `;
 
 export const CardTitle = styled.Text`
@@ -100,4 +101,31 @@ export const Chart = styled.View`
 
      justify-content: center;
      align-items: center;
+`;
+
+export const DebtTitleCard = styled.Text`
+     font-size: 20px;
+     color: #fff;
+     margin-bottom: 10px;
+`;
+
+export const ValueCard = styled.Text`
+     font-size: 20px;
+     color: #fff;
+     margin-bottom: 5px;
+`;
+
+export const DeadlineCard = styled.Text`
+     font-size: 16px;
+     color:rgba(255, 255, 255, 0.71);
+     margin-bottom: 20px;
+`;
+
+export const ContainerProgressBar = styled.View`
+     align-items: center;
+`;
+
+export const IconsCard = styled.View`
+     flex-direction: row;
+     justify-content: space-between;
 `;

@@ -34,7 +34,7 @@ export default function Goal() {
           <Days>102 dias</Days>
         </WhenView>
 
-        <Progress.Bar width={300} height={10} indeterminate={false} progress={0.3} color="#F8D332" unfilledColor="#C4C4C4" />
+        <Progress.Bar width={300} height={10} borderWidth={0} indeterminate={false} progress={0.3} color="#F8D332" unfilledColor="#C4C4C4" />
 
         <Options>
           <BtnOption>
