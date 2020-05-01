@@ -1,10 +1,15 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Feather } from '@expo/vector-icons';
 
-// import { Container } from './styles';
+import ModalMenu from '../../Components/ModalMenu';
+
+import { Container, PlusButton } from './styles';
 
 export default function Home() {
+  const [modal, setModal] = useState(<View></View>);
+
   const navigation = useNavigation();
 
   function navigateToSector() {
@@ -19,11 +24,17 @@ export default function Home() {
     navigation.navigate('Profile');
   }
 
+  function openModalMenu() {
+    setModal(<ModalMenu state={'open'}/>);
+  }
+
   return (
-    <View>
-         <Text onPress={navigateToSector}>Setor</Text>
-         <Text onPress={navigateToGoal}>Meta</Text>
-         <Text onPress={navigateToProfile}>Profile</Text>
-    </View>
+    <Container>
+        {modal}
+        <PlusButton onPress={openModalMenu}>
+          <Feather color="#fff" size={40} name="plus" />
+        </PlusButton>
+    </Container>
   );
 }
+

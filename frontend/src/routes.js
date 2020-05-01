@@ -19,7 +19,7 @@ const AppStack = createStackNavigator();
 export default function Routes() {
      return(
           <NavigationContainer>
-               <AppStack.Navigator initialRouteName="Register" screenOptions={{
+               <AppStack.Navigator initialRouteName="Home" screenOptions={{
                     headerStyle: {
                          elevation: 0,
                          backgroundColor: 'transparent'
