@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Input } from './../../Components/Input'
+import { Input } from './../../Components/Input';
 import { Container, Title, LoginButton } from './styles';
 import { render } from 'react-dom';
 

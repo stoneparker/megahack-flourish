@@ -20,6 +20,5 @@ export const LoginButton = styled.TouchableOpacity`
     background: #79C255;
     top: 80px;
 
-
 `;
 
