@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
+import * as Progress from 'react-native-progress';
+// import { ART } from 'react-native';
+// import {Surface, Shape} from '@react-native-community/art';
 
 import ModalMenu from '../../Components/ModalMenu';
 
-import { Container, PlusButton, Text } from './styles';
+import { 
+  Container, 
+  PlusButton, 
+  Text, 
+  Leftlover, 
+  TextLeftlover, 
+  MoneyLeftlover,
+  Scroll,
+  Title,
+  CardsContainer,
+  Card,
+  ContainerLeftlover,
+  ContainerScrolls,
+  CardTitle
+} from './styles';
 
 export default function Home() {
-  const [modal, setModal] = useState(<View></View>);
+  // const [modal, setModal] = useState(<View></View>);
 
   const navigation = useNavigation();
 
@@ -28,9 +44,44 @@ export default function Home() {
     setModal(<ModalMenu state={'open'}/>);
   }
 
+  const data = {
+    teste : [1, 2, 3, 4, 5, 6, 7, 8]
+  }
+
   return (
     <Container>
-        {modal}
+        <ContainerLeftlover>
+          <Leftlover>
+            <TextLeftlover>Seu saldo:</TextLeftlover>
+            <MoneyLeftlover>R$ 2345,95</MoneyLeftlover>
+          </Leftlover>
+        </ContainerLeftlover>
+
+        <ContainerScrolls>
+          <Scroll>
+            <Title>Despesas</Title>
+            <CardsContainer>
+              {data.teste.map(teste => 
+                <Card onPress={navigateToSector}>
+                  <CardTitle>Alimentação</CardTitle>
+                  <Progress.Circle size={30} indeterminate={false} progress={0.5} />
+                </Card>
+              )}
+            </CardsContainer>
+          </Scroll>
+
+          <Scroll>
+            <Title>Metas</Title>
+            <CardsContainer>
+              {data.teste.map(teste => 
+                <Card onPress={navigateToGoal}>
+                  <CardTitle>Alimentação</CardTitle>
+                </Card>
+              )}
+            </CardsContainer>
+          </Scroll>
+        </ContainerScrolls>
+
         <PlusButton onPress={openModalMenu}>
           <Feather color="#fff" size={40} name="plus" />
         </PlusButton>
