@@ -85,11 +85,14 @@ export const FirstLine = styled.View`
      flex-direction: row;
 `;
 
-export const TitleExpense =  styled.TextInput`
+export const TitleExpense = styled.TextInput`
      font-size: 20px;
      margin-right: 10px;
      color: #fff;
      font-family: 'Fredoka One';
+     /* background: #79C255; */
+     background: ${props => props.editable === true ? '#79C255' : 'transparent'};
+     padding: 0;
 `;
 
 export const DateExpense =  styled.Text`

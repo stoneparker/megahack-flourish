@@ -24,10 +24,13 @@ import {
 import { Title } from '../Goal/styles';
 
 export default function Sector() {
-  const [edit, setEdit] = useState(false);
-
   const data = {
     teste : [1, 2, 3, 4, 5, 6, 7, 8]
+  }
+
+  function editSpending() {
+    setEdit(true);
+    alert(edit);
   }
 
   return (
@@ -56,14 +59,14 @@ export default function Sector() {
             <Card>
               <InfosExpense>
                 <FirstLine>
-                  <TitleExpense edit={false}>Mercado</TitleExpense>
+                  <TitleExpense editable={false} autoFocus>Mercado</TitleExpense>
                   <DateExpense>(20/12/2019)</DateExpense>
                 </FirstLine>
                 <ValueExpense>R$ 420,00</ValueExpense>
               </InfosExpense>
               <IconsCard>
                 <Feather name="trash-2" color="#fff" size={22} />
-                <Feather name="edit" color="#fff" size={22} />
+                <Feather name="edit" color="#fff" size={22} onPress={editSpending} />
               </IconsCard>
             </Card>
           )}

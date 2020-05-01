@@ -62,7 +62,7 @@ export default function Home() {
           <Leftlover>
             <TitleLeftlover>
               <TextLeftlover>Seu saldo:</TextLeftlover>
-              <FontAwesome5 size={20} name="user-alt" color="#000" style="solid" />
+              <FontAwesome5 size={20} name="user-alt" color="#000" style="solid" onPress={navigateToProfile} />
             </TitleLeftlover>
             <MoneyLeftlover>R$ 2345,95</MoneyLeftlover>
           </Leftlover>
@@ -118,7 +118,7 @@ export default function Home() {
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 renderItem={(item) => (
-                  <Card onPress={navigateToGoal}>
+                  <Card>
                     <View>
                     <ContainerTitle><CardTitle>Alimentação</CardTitle></ContainerTitle>
                       <ValueCard>R$ 30.020,00</ValueCard>
@@ -129,7 +129,6 @@ export default function Home() {
                       </ContainerProgressBar>
                     </View>
                     <IconsCard>
-                      
                       <Feather name="edit" color="#fff" size={30} />
                       <Feather name="trash-2" color="#fff" size={30} />
                     </IconsCard>
