@@ -23,7 +23,8 @@ export default function Routes() {
                     headerStyle: {
                          elevation: 0,
                          backgroundColor: 'transparent'
-                    }                    
+                    },
+                    title: '',
                }} >
                     <AppStack.Screen name="Register" component={Register} />
                     <AppStack.Screen name="RegisterRent" component={RegisterRent} />
