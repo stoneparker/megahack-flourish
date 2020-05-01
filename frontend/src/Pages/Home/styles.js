@@ -93,3 +93,11 @@ export const CardTitle = styled.Text`
      border-right-width: 0;
      border-left-width: 0;
 `;
+
+export const Chart = styled.View`
+     width: 170px;
+     height: 150px;
+
+     justify-content: center;
+     align-items: center;
+`;

@@ -20,7 +20,8 @@ import {
   Card,
   ContainerLeftlover,
   ContainerScrolls,
-  CardTitle
+  CardTitle,
+  Chart
 } from './styles';
 
 export default function Home() {
@@ -64,7 +65,9 @@ export default function Home() {
               {data.teste.map(teste => 
                 <Card onPress={navigateToSector}>
                   <CardTitle>Alimentação</CardTitle>
-                  <Progress.Circle size={30} indeterminate={false} progress={0.5} />
+                  <Chart>
+                    <Progress.Pie size={88} color="rgba(240, 120, 90, 1)" unfilledColor="rgba(240, 196, 25, 0.9)" borderWidth={0} indeterminate={false} progress={0.7} />
+                  </Chart>
                 </Card>
               )}
             </CardsContainer>
@@ -76,6 +79,9 @@ export default function Home() {
               {data.teste.map(teste => 
                 <Card onPress={navigateToGoal}>
                   <CardTitle>Alimentação</CardTitle>
+                  <Chart>
+                    <Progress.Pie size={88} color="#482483" unfilledColor="#19F062" borderWidth={0} indeterminate={false} progress={0.9} />
+                  </Chart>
                 </Card>
               )}
             </CardsContainer>
