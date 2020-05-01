@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
 import ModalMenu from '../../Components/ModalMenu';
 
-import { Container, PlusButton } from './styles';
+import { Container, PlusButton, Text } from './styles';
 
 export default function Home() {
   const [modal, setModal] = useState(<View></View>);

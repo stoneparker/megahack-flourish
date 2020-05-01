@@ -20,4 +20,7 @@ export const PlusButton = styled.TouchableOpacity`
      border-radius: 30px;
      background: #F8D332;
      /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25); */
+`; 
+ 
+export const Text = styled.Text`
 `;
