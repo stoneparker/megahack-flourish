@@ -9,16 +9,25 @@ import { BtnCancel, Options, TextBtnCancel, TextBtnNext, BtnNext } from '../Moda
 import ModalNewGoal from '../ModalNewGoal';
 
 export default function ModalNewGoal2({ setModalNewGoal2Visible, isVisible }) {
-     
+     const [dateBR, setDateBR] = useState('');
+     const [dateUSA, setDateUSA] = useState('');
+
      const navigation = useNavigation();
 
      function closeModalNewGoal2() {
           setModalNewGoal2Visible(false);
+          setDateBR('');
+          setDateUSA('');
      }
 
      function saveNewGoal() {
           closeModalNewGoal2();
           navigation.navigate('Goal');
+     }
+
+     function handleDate(day) {
+          setDateBR(day.day +'/'+ day.month +'/'+ day.year);
+          setDateUSA(day.dateString);
      }
 
      // function previousStep() {
@@ -30,9 +39,14 @@ export default function ModalNewGoal2({ setModalNewGoal2Visible, isVisible }) {
           <>
                <Modal isVisible={isVisible}>
                     <Filter onPress={closeModalNewGoal2}>
-                         <Content>
+                         <Content onPress={() => {}}>
                               <Title>Nova meta</Title>
-                              <CalendarView></CalendarView>
+                              <Calendar
+                                   onDayPress={day => handleDate(day)}
+                                   markedDates={{
+                                        [dateUSA]: {selected: true}
+                                   }}
+                              />
                               <Text>Você deverá economizar R$200/mês para alcançar sua meta nesse prazo.</Text>
 
                               <Options>
