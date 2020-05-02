@@ -7,6 +7,7 @@ import * as Progress from 'react-native-progress';
 // import { ART } from 'react-native';
 // import {Surface, Shape} from '@react-native-community/art';
 import ModalMenu from '../../Components/ModalMenu';
+import ModalDelete from '../../Components/ModalDelete';
 
 import { 
   Container, 
@@ -32,6 +33,7 @@ import {
 
 export default function Home() {
   const [modalMenuVisible, setModalMenuVisible] = useState(false);
+  const [modalDeleteVisible, setModalDeleteVisible] = useState(false);
 
   const navigation = useNavigation();
 
@@ -49,6 +51,10 @@ export default function Home() {
 
   function handleModalMenu() {
     setModalMenuVisible(!modalMenuVisible);
+  }
+
+  function openModalDelete() {
+    setModalDeleteVisible(!modalDeleteVisible);
   }
 
   const data = {
@@ -129,7 +135,7 @@ export default function Home() {
                     </View>
                     <IconsCard>
                       <Feather name="edit" color="#fff" size={30} />
-                      <Feather name="trash-2" color="#fff" size={30} />
+                      <Feather name="trash-2" color="#fff" size={30} onPress={openModalDelete} />
                     </IconsCard>
                   </Card>
                 )}
@@ -144,6 +150,7 @@ export default function Home() {
       </PlusButton>
 
       <ModalMenu setModalMenuVisible={setModalMenuVisible} isVisible={modalMenuVisible} />
+      <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} />
 
     </Container>
   );

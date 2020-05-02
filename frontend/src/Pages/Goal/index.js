@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import * as Progress from 'react-native-progress';
 
-import Delete from '../../Utils/Delete';
-
 import ModalDelete from '../../Components/ModalDelete';
 
 import { 
