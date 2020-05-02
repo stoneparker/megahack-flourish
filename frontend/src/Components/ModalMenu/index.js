@@ -1,22 +1,34 @@
 import React, { useState } from 'react';
 import Modal from 'react-native-modal';
 
-import ModalNew from '../ModalNew';
+import ModalNewGoal from '../ModalNewGoal';
+import ModalNewDebt from '../ModalNewDebt';
+import ModalNewSpent from '../ModalNewSpent';
 
 import { Container, Option, Menu, Filter, TextOption } from './styles';
 
 export default function ModalMenu({ setModalMenuVisible, isVisible }) {
-     const [modalNewVisible, setModalNewVisible] = useState(false);
-     const [type, setType] = useState('');
+     const [modalNewGoalVisible, setModalNewGoalVisible] = useState(false);
+     const [modalNewDebtVisible, setModalNewDebtVisible] = useState(false);
+     const [modalNewSpentVisible, setModalNewSpentVisible] = useState(false);
 
      function closeModalMenu() {
           setModalMenuVisible(false);
      }
 
-     function handleModalNew(tipo) {
+     function openModalNewGoal() {
           closeModalMenu();
-          setType(tipo);
-          setModalNewVisible(!modalNewVisible);
+          setModalNewGoalVisible(!modalNewGoalVisible);
+     }
+
+     function openModalNewDebt() {
+          closeModalMenu();
+          setModalNewDebtVisible(!modalNewDebtVisible);
+     }
+
+     function openModalNewSpent() {
+          closeModalMenu();
+          setModalNewSpentVisible(!modalNewSpentVisible);
      }
 
      return (
@@ -25,19 +37,21 @@ export default function ModalMenu({ setModalMenuVisible, isVisible }) {
                     <Filter onPress={closeModalMenu}>
                          <Menu>
                               <Option>
-                                   <TextOption onPress={() => handleModalNew('gasto')}>Novo gasto</TextOption>
+                                   <TextOption onPress={openModalNewSpent}>Novo gasto</TextOption>
                               </Option>
                               <Option>
-                                   <TextOption onPress={() => handleModalNew('meta')}>Nova meta</TextOption>
+                                   <TextOption onPress={openModalNewGoal}>Nova meta</TextOption>
                               </Option>
                               <Option position="last">
-                                   <TextOption onPress={() => handleModalNew('dívida')}>Nova dívida</TextOption>
+                                   <TextOption onPress={openModalNewDebt}>Nova dívida</TextOption>
                               </Option>
                          </Menu>
                     </Filter>
                </Modal>
 
-               <ModalNew type={type} setModalNewVisible={setModalNewVisible} isVisible={modalNewVisible} />     
+               <ModalNewGoal setModalNewGoalVisible={setModalNewGoalVisible} isVisible={modalNewGoalVisible} />     
+               <ModalNewDebt setModalNewDebtVisible={setModalNewDebtVisible} isVisible={modalNewDebtVisible} />   
+               <ModalNewSpent setModalNewSpentVisible={setModalNewSpentVisible} isVisible={modalNewSpentVisible} />   
           </>
      );
 }

@@ -40,7 +40,7 @@ export const Title = styled.Text`
      margin-bottom: 20px;
 `;
 
-export const Calendar = styled.View`
+export const CalendarView = styled.View`
      width: 100%;
      height: 250px;
      background: #999;

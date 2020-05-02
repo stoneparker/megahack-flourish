@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Modal from 'react-native-modal';
+import { Calendar } from 'react-native-calendars';
 
-import { Text, Content, Filter, Title, Calendar } from './styles';
-import { BtnCancel, Options, TextBtnCancel, TextBtnNext, BtnNext } from '../ModalNew/styles';
+import { Text, Content, Filter, Title, CalendarView } from './styles';
+import { BtnCancel, Options, TextBtnCancel, TextBtnNext, BtnNext } from '../ModalNewGoal/styles';
 
-import ModalNew from '../ModalNew';
+import ModalNewGoal from '../ModalNewGoal';
 
 export default function ModalNewGoal2({ setModalNewGoal2Visible, isVisible }) {
      
@@ -31,7 +32,7 @@ export default function ModalNewGoal2({ setModalNewGoal2Visible, isVisible }) {
                     <Filter onPress={closeModalNewGoal2}>
                          <Content>
                               <Title>Nova meta</Title>
-                              <Calendar></Calendar>
+                              <CalendarView></CalendarView>
                               <Text>Você deverá economizar R$200/mês para alcançar sua meta nesse prazo.</Text>
 
                               <Options>
