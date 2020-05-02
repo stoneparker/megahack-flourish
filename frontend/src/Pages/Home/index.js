@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { FlatList, View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import Modal from 'react-native-modal';
 
 import * as Progress from 'react-native-progress';
 // import { ART } from 'react-native';
 // import {Surface, Shape} from '@react-native-community/art';
-
-import { Menu, ModalV, Option } from '../../Components/ModalMenu/styles';
 import ModalMenu from '../../Components/ModalMenu';
 
 import { 
@@ -34,8 +31,7 @@ import {
 } from './styles';
 
 export default function Home() {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modal, setModal] = useState(<View />);
+  const [modalMenuVisible, setModalMenuVisible] = useState(false);
 
   const navigation = useNavigation();
 
@@ -52,7 +48,7 @@ export default function Home() {
   }
 
   function handleModalMenu() {
-    setModalVisible(!modalVisible);
+    setModalMenuVisible(!modalMenuVisible);
   }
 
   const data = {
@@ -147,7 +143,7 @@ export default function Home() {
         <Feather color="#fff" size={40} name="plus" />
       </PlusButton>
 
-      <ModalMenu setModalVisible={setModalVisible} isVisible={modalVisible} />
+      <ModalMenu setModalMenuVisible={setModalMenuVisible} isVisible={modalMenuVisible} />
 
     </Container>
   );
