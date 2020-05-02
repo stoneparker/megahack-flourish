@@ -3,7 +3,8 @@
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
-
+const Debt = use('App/Models/Debt')
+const User = use('App/Models/User')
 /**
  * Resourceful controller for interacting with debts
  */
@@ -21,18 +22,6 @@ class DebtController {
   }
 
   /**
-   * Render a form to be used for creating a new debt.
-   * GET debts/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
-  }
-
-  /**
    * Create/save a new debt.
    * POST debts
    *
@@ -40,7 +29,15 @@ class DebtController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
+  async store ({ params, request, response }) {
+    const fk_user = params.fk_user;
+    const { name, value, interest, term } = request.only(['name', 'value', 'interest', 'term'])
+
+    const debt = await Debt.create({
+      name, value, interest, term, fk_user
+    });
+
+    return response.json({ id: debt.id_debts });
   }
 
   /**
@@ -52,20 +49,13 @@ class DebtController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show ({ params, request, response}) {
+    const user = await User.findOrFail(params.fk_user);
+    const debts = await user.debts().fetch();
+
+    return debts;
   }
 
-  /**
-   * Render a form to update an existing debt.
-   * GET debts/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
-  }
 
   /**
    * Update debt details.
@@ -76,6 +66,17 @@ class DebtController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
+    const fk_user = params.fk_user;
+    const { name, value, interest, term } = request.only(['name', 'value', 'interest', 'term']);
+
+    const debts = await Debt.findOrFail(params.id);
+
+    debts.merge({
+      name, value, interest, term, fk_user
+    });
+
+    await debts.save();
+    return response.status(204).end();
   }
 
   /**
@@ -86,7 +87,11 @@ class DebtController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
+  async destroy ({ params, response }) {
+    const debts = await Debt.findOrFail(params.id);
+    await debts.delete();
+
+    return response.status(204).end();
   }
 }
 

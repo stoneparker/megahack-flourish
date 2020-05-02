@@ -28,7 +28,9 @@ Route.resource('cost_type/:fk_costs_type/cost', 'CostController').apiOnly().exce
 Route.delete('cost/:id', 'CostController.destroy')
 Route.get('cost_type/:fk_costs_type/cost', 'CostController.show')
 // --
-Route.resource('debt', 'DebtController').apiOnly().except('index')
+Route.resource('user/:fk_user/debt', 'DebtController').apiOnly().except(['index', 'destroy', 'show'])
+Route.get('user/:fk_user/debt', 'DebtController.show');
+Route.delete('debt/:id', 'DebtController.destroy')
 // --
 Route.resource('user/:fk_user/cost_type', 'CostTypeController').apiOnly().except(['index', 'destroy', 'show'])
 Route.get('user/:id_user/cost_type', 'CostTypeController.show')
