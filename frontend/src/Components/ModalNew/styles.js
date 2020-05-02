@@ -62,6 +62,23 @@ export const Input = styled.TextInput`
      border-radius: 30px;
 `;
 
+export const ListPicker = styled.View`
+     width: 100%;
+     height: 40px;
+     background: #51B2BC;
+     border-radius: 30px;
+     justify-content: center;
+     padding: 0 10px;
+     margin-bottom: 17px;
+`;
+
+export const Picker = styled.Picker`
+     color: #fff;
+     font-family: 'Fredoka One';
+     justify-content: center;
+     align-items: center;
+`;
+
 export const Options = styled.View`
      flex-direction: row;
      justify-content: space-between;
