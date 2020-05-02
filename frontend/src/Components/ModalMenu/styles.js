@@ -1,7 +1,8 @@
+import { StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 
-export const ModalV = styled.TouchableOpacity`
-     display: ${props => props.state === false ? 'none' : 'flex'};
+export const Container = styled.TouchableOpacity`
+     display: ${props => props.isVisible === false ? 'none' : 'flex'};
      flex: 1 !important;
      align-items: center;
      justify-content: center;
@@ -18,11 +19,31 @@ export const Menu = styled.View`
      align-items: center;
 
      background: #fff;
-     padding: 20px 40px;
+     /* padding: 20px 40px; */
+     /* height: 100px; */
+     width: 60%;
+     padding: 10px 0;
      border-radius: 10px;
 `;
 
-export const Option = styled.Text`
+export const Option = styled.TouchableOpacity.attrs({
+     activeOpacity: 1
+})`
+     width: 100%;
+     padding: 10px 0;
+     border-bottom-width: ${props => props.position === "last" ? 0 : StyleSheet.hairlineWidth}px;
+     border-bottom-color: rgba(0, 0, 0, 0.2);
+`;
+
+export const Filter = styled.TouchableOpacity.attrs({
+     activeOpacity: 1
+})`
+     justify-content: center;
+     align-items: center;
+     flex: 1;
+`;
+
+export const TextOption = styled.Text`
      font-size: 20px;
-     padding: 3px;
+     text-align: center;
 `;

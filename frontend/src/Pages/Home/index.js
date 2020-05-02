@@ -9,6 +9,7 @@ import * as Progress from 'react-native-progress';
 // import {Surface, Shape} from '@react-native-community/art';
 
 import { Menu, ModalV, Option } from '../../Components/ModalMenu/styles';
+import ModalMenu from '../../Components/ModalMenu';
 
 import { 
   Container, 
@@ -34,7 +35,7 @@ import {
 
 export default function Home() {
   const [modalVisible, setModalVisible] = useState(false);
-  // const [modal, setModal] = useState(<View />);
+  const [modal, setModal] = useState(<View />);
 
   const navigation = useNavigation();
 
@@ -52,6 +53,9 @@ export default function Home() {
 
   function handleModalMenu() {
     setModalVisible(!modalVisible);
+    // alert('click');
+    // setModal(<ModalMenu visible={true} />)
+    // console.log(modal);
   }
 
   const data = {
@@ -70,13 +74,6 @@ export default function Home() {
           </Leftlover>
         </ContainerLeftlover>
 
-        <View>
-          <Modal isVisible={modalVisible}>
-            <TouchableOpacity style={{ flex: 1 }} onPress={handleModalMenu}>
-              <Text>I am the modal content!</Text>
-            </TouchableOpacity>
-          </Modal>
-        </View>
 
         <ScrollView showsVerticalScrollIndicator={false}>
           <Scroll>
@@ -150,9 +147,12 @@ export default function Home() {
 
         </ScrollView>
 
-        <PlusButton onPress={handleModalMenu}>
-          <Feather color="#fff" size={40} name="plus" />
-        </PlusButton>
+      <PlusButton onPress={handleModalMenu}>
+        <Feather color="#fff" size={40} name="plus" />
+      </PlusButton>
+
+      <ModalMenu setModalVisible={setModalVisible} isVisible={modalVisible} />
+
     </Container>
   );
 }
