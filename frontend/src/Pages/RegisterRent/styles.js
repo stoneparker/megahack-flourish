@@ -10,19 +10,22 @@ export const Container = styled.View`
 export const Title = styled.Text`
 	font-size: 20px;
     color: #4F4F4F;
-    padding-right: 65%;
     margin-bottom: 2%;
+    padding-right: 50%;
+    
     
 `;
 
-export const LoginButton = styled.TouchableOpacity`
+export const Viewer = styled.View`
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+`;
+
+export const NextButton = styled.TouchableOpacity`
     border-radius: 30px;
     width: 90%;
     height: 50px;
     background: #79C255;
-    margin-bottom: 5%;
-    margin-top: 5%;
-   
-
+    margin-bottom: 15%;
 `;
-

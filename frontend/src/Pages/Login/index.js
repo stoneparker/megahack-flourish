@@ -44,7 +44,7 @@ export default function Login() {
 
         <Text style={{textAlign: "center", color: "#4F4F4F"}}>Esqueci a senha</Text>
         
-        <LoginButton onPress={navigateToHome}><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10}}>Entrar</Text></LoginButton>
+        <LoginButton onPress={navigateToHome}><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>ENTRAR</Text></LoginButton>
 
         <Text onPress={navigateToRegister} style={{textAlign: "center", color: "#4F4F4F", marginBottom: 50}}>Não possui um cadastro?</Text>
 
