@@ -18,7 +18,7 @@ class Goal extends Model {
   }
 
   goals_payment(){
-    return this.hasMany('App/Models/GoalPayment', 'id_goal', 'id_goals_payment')
+    return this.hasMany('App/Models/GoalPayment', 'id_goal', 'fk_goals')
   }
 }
 

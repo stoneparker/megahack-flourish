@@ -16,8 +16,8 @@ class CostType extends Model {
   static get updatedAtColumn () {
     return null
   }
-  debts(){
-    return this.belongsTo('App/Models/User', 'id_cost_type', 'id_user')
+  costs() {
+    return this.hasMany('App/Models/Cost', 'id_cost_type', 'fk_cost_type')
   }
 }
 

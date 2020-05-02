@@ -20,11 +20,16 @@ Route.post('user', 'UserController.store')
 Route.post('session', 'UserController.session')
 Route.put('user/:id', 'UserController.update')
 // --
-Route.resource('goal', 'GoalController').apiOnly().except(['show'])
-Route.get('user/:id/goal', 'GoalController.show')
+Route.resource('user/:fk_user/goal', 'GoalController').apiOnly().except(['index', 'destroy'])
+Route.delete('goal/:id', 'GoalController.destroy')
+
 // --
-Route.resource('cost', 'CostController').apiOnly()
+Route.resource('cost_type/:fk_costs_type/cost', 'CostController').apiOnly().except(['index', 'destroy', 'show'])
+Route.delete('cost/:id', 'CostController.destroy')
+Route.get('cost_type/:fk_costs_type/cost', 'CostController.show')
 // --
-Route.resource('debt', 'DebtController').apiOnly()
+Route.resource('debt', 'DebtController').apiOnly().except('index')
 // --
-Route.resource('user/:id_user/cost_type', 'CostTypeController').apiOnly()
+Route.resource('user/:fk_user/cost_type', 'CostTypeController').apiOnly().except(['index', 'destroy', 'show'])
+Route.get('user/:id_user/cost_type', 'CostTypeController.show')
+Route.delete('cost_type/:id', 'CostTypeController.destroy')

@@ -34,9 +34,9 @@ class Cost extends Model {
     return null
   }
 
-  costs_type(){
-    return this.belongsTo('App/Models/CostType', 'id_cost', 'id_cost_type')
-  }
+  // costs_type(){
+  //   return this.belongsTo('App/Models/CostType', 'fk_cost_type', 'id_cost_type')
+  // }
 }
 
 module.exports = Cost

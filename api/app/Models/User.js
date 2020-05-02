@@ -34,10 +34,10 @@ class User extends Model {
   }
 
   debts(){
-    return this.hasMany('App/Models/Debt', 'id_user', 'id_debts')
+    return this.hasMany('App/Models/Debt', 'id_user', 'fk_user')
   }
   costs_type(){
-    return this.hasMany('App/Models/CostType', 'id_user', 'id_cost_type')
+    return this.hasMany('App/Models/CostType', 'id_user', 'fk_user')
   }
   goals(){
     return this.hasMany('App/Models/Goal', 'id_user', 'fk_user')

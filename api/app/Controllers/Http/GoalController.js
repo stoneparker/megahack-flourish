@@ -31,9 +31,13 @@ class GoalController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
-    const data = request.only(['name', 'value', 'proportion', 'term', 'fk_user']);
-    const goal = await Goal.create(data);
+  async store ({ params, request, response }) {
+    const { name, value, proportion, term } = request.post();
+    const fk_user = params.id;
+
+    const goal = await Goal.create({
+      name, value, proportion, term, fk_user
+    });
 
     return response.json({ id: goal.id_goal });
   }
@@ -63,10 +67,13 @@ class GoalController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
-    const data = request.only(['name', 'value', 'proportion', 'term']);
+    const fk_user = params.fk_user;
+    const { name, value, proportion, term } = request.only(['name', 'value', 'proportion', 'term']);
     const goal = await Goal.findOrFail(params.id);
 
-    goal.merge(data);
+    goal.merge({
+      name, value, proportion, term, fk_user
+    });
     await goal.save();
 
     return response.status(204).end();
