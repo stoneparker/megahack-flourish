@@ -16,7 +16,7 @@ export default function ModalDelete({ setModalDeleteVisible, isVisible }) {
           <Modal isVisible={isVisible}>
                <Filter onPress={closeModalMenu}>
                     <Menu>
-                         <Text>Você deseja mesmo excluir esse setor?</Text>
+                         <Text>Você deseja mesmo excluir isso?</Text>
                          <Options>
                               <BtnCancel onPress={closeModalMenu}>
                                    <TextBtnCancel>CANCELAR</TextBtnCancel>

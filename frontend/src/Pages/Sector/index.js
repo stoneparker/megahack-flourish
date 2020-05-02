@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
 import * as Progress from 'react-native-progress';
 
+import ModalDelete from '../../Components/ModalDelete';
+
 import { 
   Container, 
   Content, 
@@ -24,13 +26,18 @@ import {
 import { Title } from '../Goal/styles';
 
 export default function Sector() {
+  const [modalDeleteVisible, setModalDeleteVisible] = useState(false);
+
+  function openModalDelete() {
+    setModalDeleteVisible(!modalDeleteVisible);
+  }
+
   const data = {
     teste : [1, 2, 3, 4, 5, 6, 7, 8]
   }
 
   function editSpending() {
-    setEdit(true);
-    alert(edit);
+    
   }
 
   return (
@@ -56,7 +63,7 @@ export default function Sector() {
 
         <Spending>
           {data.teste.map(teste => 
-            <Card>
+            <Card key={teste}>
               <InfosExpense>
                 <FirstLine>
                   <TitleExpense editable={false} autoFocus>Mercado</TitleExpense>
@@ -65,14 +72,15 @@ export default function Sector() {
                 <ValueExpense>R$ 420,00</ValueExpense>
               </InfosExpense>
               <IconsCard>
-                <Feather name="trash-2" color="#fff" size={22} />
+                <Feather name="trash-2" color="#fff" size={22} onPress={openModalDelete} />
                 <Feather name="edit" color="#fff" size={22} onPress={editSpending} />
               </IconsCard>
             </Card>
           )}
         </Spending>
+      </Content>
 
-        </Content>
+        <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} />
     </Container>
   );
 }
