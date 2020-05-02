@@ -1,9 +1,12 @@
 'use strict'
 
+
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const Goal = use('App/Models/Goal')
+const User = use('App/Models/User')
 /**
  * Resourceful controller for interacting with goals
  */
@@ -21,18 +24,6 @@ class GoalController {
   }
 
   /**
-   * Render a form to be used for creating a new goal.
-   * GET goals/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
-  }
-
-  /**
    * Create/save a new goal.
    * POST goals
    *
@@ -41,6 +32,10 @@ class GoalController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    const data = request.only(['name', 'value', 'proportion', 'term', 'fk_user']);
+    const goal = await Goal.create(data);
+
+    return response.json({ id: goal.id_goal });
   }
 
   /**
@@ -52,19 +47,11 @@ class GoalController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
-  }
+  async show ({ params }) {
+    const user = await User.findOrFail(1);
+    const goals = await user.goals().fetch();
 
-  /**
-   * Render a form to update an existing goal.
-   * GET goals/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
+    return goals;
   }
 
   /**
@@ -76,6 +63,13 @@ class GoalController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
+    const data = request.only(['name', 'value', 'proportion', 'term']);
+    const goal = await Goal.findOrFail(params.id);
+
+    goal.merge(data);
+    await goal.save();
+
+    return response.status(204).end();
   }
 
   /**
@@ -86,7 +80,11 @@ class GoalController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
+  async destroy ({ params, response }) {
+    const goal = await Goal.findOrFail(params.id);
+    await goal.delete();
+
+    return response.status(204).end();
   }
 }
 

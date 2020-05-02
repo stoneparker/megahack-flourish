@@ -34,7 +34,7 @@ class Debt extends Model {
   }
 
   debts_payment(){
-    this.hasMany('App/Models/DebtPayment', 'id_debts', 'id_debts_payment')
+    return this.hasMany('App/Models/DebtPayment', 'id_debts', 'id_debts_payment')
   }
 
 }

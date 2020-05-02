@@ -35,7 +35,7 @@ class Cost extends Model {
   }
 
   costs_type(){
-    this.belongsTo('App/Models/CostType', 'id_cost', 'id_cost_type')
+    return this.belongsTo('App/Models/CostType', 'id_cost', 'id_cost_type')
   }
 }
 

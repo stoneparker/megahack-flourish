@@ -20,10 +20,11 @@ Route.post('user', 'UserController.store')
 Route.post('session', 'UserController.session')
 Route.put('user/:id', 'UserController.update')
 // --
-Route.resource('goal', 'GoalController').apiOnly()
+Route.resource('goal', 'GoalController').apiOnly().except(['show'])
+Route.get('user/:id/goal', 'GoalController.show')
 // --
 Route.resource('cost', 'CostController').apiOnly()
 // --
 Route.resource('debt', 'DebtController').apiOnly()
 // --
-Route.resource('user/:id/cost_type', 'CostTypeController').apiOnly()
+Route.resource('user/:id_user/cost_type', 'CostTypeController').apiOnly()

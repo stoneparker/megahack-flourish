@@ -17,7 +17,7 @@ class CostType extends Model {
     return null
   }
   debts(){
-    this.belongsTo('App/Models/User', 'id_cost_type', 'id_user')
+    return this.belongsTo('App/Models/User', 'id_cost_type', 'id_user')
   }
 }
 
