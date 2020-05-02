@@ -18,7 +18,7 @@ const Route = use('Route')
 
 Route.post('user', 'UserController.store')
 Route.post('session', 'UserController.session')
-Route.put('user', 'UserController.update')
+Route.put('user/:id', 'UserController.update')
 // --
 Route.resource('goal', 'GoalController').apiOnly()
 // --
