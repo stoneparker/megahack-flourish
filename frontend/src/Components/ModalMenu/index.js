@@ -1,26 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import Modal from 'react-native-modal';
 
-import { Container, Modal, Option } from './styles';
+import { Container, Option } from './styles';
 
-export default function ModalMenu({ state }) {
-     const [stateModal, setStateModal] = useState(state);
+export default function ModalMenu({ visible }) {
+     const [modalVisible, setModalVisible] = useState(visible);
 
      function closeModalMenu() {
-          setStateModal('close');
+          setModalVisible(false);
      }
 
-     // useEffect(() => {
-     //      setStateModal('open')
-     // }, [state])
+     useEffect(() => {
+          setModalVisible(true);
+     }, [])
 
      return (
-     <Container state={stateModal} onPress={closeModalMenu}>
-          <Modal>
-               <Option>Novo gasto</Option>
-               <Option>Nova meta</Option>
-               <Option>Nova dívida</Option>
-          </Modal>
-     </Container>
+          <View>
+               <Modal isVisible={modalVisible}>
+                    <TouchableOpacity style={{ flex: 1 }} onPress={closeModalMenu}>
+                         <Text>I am the modal content!</Text>
+                    </TouchableOpacity>
+               </Modal>
+
+               {/* <ModalV state={modalVisible}>
+            <Menu>
+              <Option>i</Option>
+              <Option>oi</Option>
+              <Option>oi</Option>
+            </Menu>
+          </ModalV> */}
+          </View>
+          
 );
 }

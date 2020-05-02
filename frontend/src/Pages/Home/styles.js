@@ -55,8 +55,6 @@ export const MoneyLeftlover = styled.Text`
      text-align: center;
 `;
 
-export const ContainerScrolls = styled.ScrollView``;
-
 export const Scroll = styled.View`
      margin-bottom: 20px;
 `;

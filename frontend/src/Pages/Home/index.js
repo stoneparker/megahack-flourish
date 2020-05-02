@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
-import { FlatList, View } from 'react-native';
+import { FlatList, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import Modal from 'react-native-modal';
+
 import * as Progress from 'react-native-progress';
 // import { ART } from 'react-native';
 // import {Surface, Shape} from '@react-native-community/art';
 
-import ModalMenu from '../../Components/ModalMenu';
+import { Menu, ModalV, Option } from '../../Components/ModalMenu/styles';
 
 import { 
   Container, 
@@ -20,7 +22,6 @@ import {
   CardsContainer,
   Card,
   ContainerLeftlover,
-  ContainerScrolls,
   CardTitle,
   Chart,
   TitleLeftlover,
@@ -32,7 +33,8 @@ import {
 } from './styles';
 
 export default function Home() {
-  // const [modal, setModal] = useState(<View></View>);
+  const [modalVisible, setModalVisible] = useState(false);
+  // const [modal, setModal] = useState(<View />);
 
   const navigation = useNavigation();
 
@@ -48,8 +50,8 @@ export default function Home() {
     navigation.navigate('Profile');
   }
 
-  function openModalMenu() {
-    setModal(<ModalMenu state={'open'}/>);
+  function handleModalMenu() {
+    setModalVisible(!modalVisible);
   }
 
   const data = {
@@ -68,7 +70,15 @@ export default function Home() {
           </Leftlover>
         </ContainerLeftlover>
 
-        <ContainerScrolls>
+        <View>
+          <Modal isVisible={modalVisible}>
+            <TouchableOpacity style={{ flex: 1 }} onPress={handleModalMenu}>
+              <Text>I am the modal content!</Text>
+            </TouchableOpacity>
+          </Modal>
+        </View>
+
+        <ScrollView showsVerticalScrollIndicator={false}>
           <Scroll>
             <Title>Despesas</Title>
             <CardsContainer>
@@ -138,11 +148,9 @@ export default function Home() {
             </CardsContainer>
           </Scroll>
 
-        </ContainerScrolls>
+        </ScrollView>
 
-        
-
-        <PlusButton onPress={openModalMenu}>
+        <PlusButton onPress={handleModalMenu}>
           <Feather color="#fff" size={40} name="plus" />
         </PlusButton>
     </Container>
