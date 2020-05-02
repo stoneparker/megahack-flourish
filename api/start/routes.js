@@ -16,6 +16,14 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
+Route.post('user', 'UserController.store')
+Route.post('session', 'UserController.session')
+Route.put('user', 'UserController.update')
+// --
+Route.resource('goal', 'GoalController').apiOnly()
+// --
+Route.resource('cost', 'CostController').apiOnly()
+// --
+Route.resource('debt', 'DebtController').apiOnly()
+// --
+Route.resource('user/:id/cost_type', 'CostTypeController').apiOnly()
