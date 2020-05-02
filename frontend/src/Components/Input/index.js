@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
 
 export const Input = styled.TextInput`
-width: 370px;
-height: 50px;
+width: 90%;
+height: 6%;
 color: #fff;
 text-align: center;
-margin: 20px;
+margin-bottom: 10%;
 background: #51B2BC;
 border-radius: 30px;
 
