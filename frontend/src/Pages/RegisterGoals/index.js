@@ -36,27 +36,21 @@ export default function RegisterGoals() {
       <Input/>
 
       <Title style={{width: 500}}>Proporção:</Title>
+        <PickerBlinders
+          selectedValue={selectedValue}
+          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
 
+          <Picker.Item label="Escolha" value="" />
+          <Picker.Item label="Metinha" value="Metinha" />
+          <Picker.Item label="Meta" value="Meta" />
+          <Picker.Item label="Metona" value="Metona" />
+          
+        </PickerBlinders>
 
     </Viewer>
+    <SaveAddButton><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>SALVAR E ADICIONAR OUTRA</Text></SaveAddButton>
+    <FinishButton onPress={navigateToHome}><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>FINALIZAR</Text></FinishButton>
 
-  <ListGoals>
-    <PickerBlinders
-        selectedValue={selectedValue}
-        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-
-        <Picker.Item label="Escolha" value="" />
-        <Picker.Item label="Metinha" value="Metinha" />
-        <Picker.Item label="Meta" value="Meta" />
-        <Picker.Item label="Metona" value="Metona" />
-        
-      </PickerBlinders>
-    </ListGoals>
-
-      
-         <SaveAddButton><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>SALVAR E ADICIONAR OUTRA</Text></SaveAddButton>
-         <FinishButton onPress={navigateToHome}><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>FINALIZAR</Text></FinishButton>
-      
      </Container>
   );
 }

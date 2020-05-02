@@ -22,7 +22,10 @@ export default function Routes() {
                <AppStack.Navigator initialRouteName="Register" screenOptions={{
                     headerStyle: {
                          elevation: 0,
-                         backgroundColor: 'transparent'
+                         backgroundColor: 'transparent',
+                    },    
+                    headerTransparent: {
+                         position: 'absolute',
                     },
                     title: '',
                }} >

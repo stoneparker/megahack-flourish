@@ -18,7 +18,7 @@ export default function RegisterRent() {
     
     <View>
       <Image 
-        style={{width: 250}}
+        style={{width: 250, marginTop: 60}}
         source={require('./../../../assets/logotipo.png')}
       />
 

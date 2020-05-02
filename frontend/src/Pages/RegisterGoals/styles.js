@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
      flex: 1;
      justify-content: center;
      align-items: center;
@@ -51,6 +51,10 @@ export const ListGoals = styled.View`
 `;
 
 export const PickerBlinders = styled.Picker`
+    background: #51B2BC;
+    height: 50px;
+    border-radius: 30px;
+    width: 90%;
     color: white;
     
 `;

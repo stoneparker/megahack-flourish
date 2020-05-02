@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { ScrollView, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { AppLoading } from 'expo';
 import { useFonts } from '@use-expo/font';
@@ -19,10 +19,10 @@ export default function Register() {
   }
   
   return (
+  <ScrollView>
   <Container>
-
-      <Image 
-        style={{width: 250}}
+    <Image 
+        style={{width: 250, marginTop: 15}}
         source={require('./../../../assets/logotipo.png')}
       />
       <Text style={{bottom: 50, color: '#4F4F4F', width: 200 }}>Complete com suas informações...</Text>
@@ -46,15 +46,9 @@ export default function Register() {
       <GenTitle>Gênero</GenTitle>
       <GenInput />
     </Box>
-
-
-    
-        
-        <NextButton onPress={navigateToRegisterRent}><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>PRÓXIMO</Text></NextButton>
-
-    
-
+    <NextButton onPress={navigateToRegisterRent}><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>PRÓXIMO</Text></NextButton>
   </Container>
+  </ScrollView>
   );
 }
 
