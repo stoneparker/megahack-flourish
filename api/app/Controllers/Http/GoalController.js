@@ -33,7 +33,7 @@ class GoalController {
    */
   async store ({ params, request, response }) {
     const { name, value, proportion, term } = request.post();
-    const fk_user = params.id;
+    const fk_user = params.fk_user;
 
     const goal = await Goal.create({
       name, value, proportion, term, fk_user

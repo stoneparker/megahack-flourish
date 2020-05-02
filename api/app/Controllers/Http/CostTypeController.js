@@ -36,7 +36,7 @@ class CostTypeController {
       name, value, fk_user
     });
 
-    return cost_type//response.json({ id: cost_type.id_cost_type });
+    return response.json({ id: cost_type.id_cost_type });
 
   }
 
@@ -49,7 +49,7 @@ class CostTypeController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response }) {
+  async show ({ params }) {
     const user = await User.findOrFail(params.id_user);
     const costsType = await user.costs_type().fetch();
 
