@@ -53,9 +53,6 @@ export default function Home() {
 
   function handleModalMenu() {
     setModalVisible(!modalVisible);
-    // alert('click');
-    // setModal(<ModalMenu visible={true} />)
-    // console.log(modal);
   }
 
   const data = {
@@ -73,7 +70,6 @@ export default function Home() {
             <MoneyLeftlover>R$ 2345,95</MoneyLeftlover>
           </Leftlover>
         </ContainerLeftlover>
-
 
         <ScrollView showsVerticalScrollIndicator={false}>
           <Scroll>
