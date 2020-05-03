@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRoute } from '@react-navigation/native';
 import * as Progress from 'react-native-progress';
 
 import ModalDelete from '../../Components/ModalDelete';
@@ -21,18 +22,25 @@ import {
 
 export default function Goal() {
   const [modalDeleteVisible, setModalDeleteVisible] = useState(false);
+  const route = useRoute();
+
+  const { goal } = route.params;
 
   function openModalDelete() {
     setModalDeleteVisible(!modalDeleteVisible);
   }
 
+  const day = new Date().getDate();
+  const month = new Date().getMonth()+1;
+  const year = new Date().getFullYear();
+
   return (
     <Container>
-         <Title>Viagem de Férias</Title>
-         <Proportion>Metona</Proportion>
+         <Title>{goal.name}</Title>
+         <Proportion>{goal.proportion}</Proportion>
 
          <InfosGoal>
-           <Value>Valor Total: R$ 7200,00</Value>
+           <Value>Valor Total: R$ {goal.value}</Value>
            <Text>Economizar <Span>R$ 300/mês</Span></Text>
          </InfosGoal>
 
