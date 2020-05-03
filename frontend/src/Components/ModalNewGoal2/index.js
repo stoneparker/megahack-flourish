@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import Modal from 'react-native-modal';
 import { Calendar } from 'react-native-calendars';
 
-import { Text, Content, Filter, Title, CalendarView } from './styles';
+import { Text, Content, Filter, Title } from './styles';
 import { BtnCancel, Options, TextBtnCancel, TextBtnNext, BtnNext } from '../ModalNewGoal/styles';
 
 import ModalNewGoal from '../ModalNewGoal';

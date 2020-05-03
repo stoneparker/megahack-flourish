@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-native-modal';
-import { View } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 
 import { 
      Content, 
@@ -15,7 +15,8 @@ import {
      TextBtnCancel, 
      BtnNext, 
      ListPicker,
-     Picker  
+     Picker,
+     DatePickerStyled,
 } from './styles';
 
 export default function ModalNewSpent({ setModalNewSpentVisible, isVisible }) {
@@ -23,6 +24,7 @@ export default function ModalNewSpent({ setModalNewSpentVisible, isVisible }) {
      const [name, setName] = useState('');
      const [value, setValue] = useState('');
      const [date, setDate] = useState('');
+     const [showDate, setShowDate] = useState(false);
 
      function closeModalNew() {
           setModalNewSpentVisible(false);
@@ -34,6 +36,10 @@ export default function ModalNewSpent({ setModalNewSpentVisible, isVisible }) {
           setName('');
           setValue('');
           setDate('');
+     }
+
+     function openDatePicker() {
+          setShowDate(true);
      }
 
      return (
@@ -60,7 +66,12 @@ export default function ModalNewSpent({ setModalNewSpentVisible, isVisible }) {
                                    <View style={{ width: '100%' }}>
                                         <Label>Data:</Label>
                                    </View>
-                                   <Input value={date} onChangeText={text => setDate(text)} />
+                                   
+                                   <DatePickerStyled
+                                        value={date}
+                                        placeholder={date}
+                                        onDateChange={date => setDate(date)}
+                                   />
                               </Field>
                               <Field>
                                    <View style={{ width: '100%' }}>
