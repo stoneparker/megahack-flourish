@@ -1,8 +1,8 @@
 import React from 'react';
 import { ScrollView, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { AppLoading } from 'expo';
-import { useFonts } from '@use-expo/font';
+//import { AppLoading } from 'expo';
+//import { useFonts } from '@use-expo/font';
 import { Input, DataInput, GenInput } from './../../Components/Input';
 
 import { Container, Title, Box, GenTitle, NextButton } from './styles';

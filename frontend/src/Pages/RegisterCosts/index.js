@@ -12,7 +12,7 @@ export default function RegisterCosts() {
   }
 
   return (
-    <View>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
          <Text onPress={navigateToRegisterGoals}>RegisterCosts</Text>
     </View>
   );
