@@ -21,7 +21,7 @@ export default function RegisterGoals() {
     <View>
       <Image 
         style={{width: 250}}
-        source={require('./../../../assets/logotipo.png')}
+        source={require('../../../assets/logotipo.png')}
       />
 
       <Text style={{paddingBottom: 20, bottom: 50, color: '#4F4F4F', width: 150 }}>Registre suas metas...</Text>

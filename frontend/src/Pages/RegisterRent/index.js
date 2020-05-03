@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { Input } from './../../Components/Input';
+import { Input } from '../../Components/Input';
 import { Container, Title } from '../../Utils/Styles/GlobalStyles';
 import Header from '../../Components/Header';
 import Button from '../../Components/Button';
@@ -24,21 +24,21 @@ export default function RegisterRent() {
       <View style={{flexDirection: "row"}}>
         <Image 
             style={{width: 100, marginRight: 100}}
-            source={require('./../../../assets/icons8-carro.png')}
+            source={require('../../../assets/icons8-carro.png')}
         />
         <Image 
             style={{width: 100, marginRight: 30, right: 60, top: 20}}
-            source={require('./../../../assets/icons8-dinheiro.png')}
+            source={require('../../../assets/icons8-dinheiro.png')}
         />
       </View>
       <View style={{flexDirection: "row"}}>
         <Image 
             style={{width: 100, marginRight: 100, top: 20}}
-            source={require('./../../../assets/icons8-praia.png')}
+            source={require('../../../assets/icons8-praia.png')}
         />
         <Image 
             style={{width: 130}}
-            source={require('./../../../assets/icons8-macbook.png')}
+            source={require('../../../assets/icons8-macbook.png')}
         />
       </View>
 

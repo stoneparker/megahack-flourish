@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { Input, DataInput, GenInput } from './../../Components/Input';
+import { Input, DataInput, GenInput } from '../../Components/Input';
 import { Container, Title } from '../../Utils/Styles/GlobalStyles';
 import Header from '../../Components/Header';
 import Button from '../../Components/Button';
@@ -50,7 +50,7 @@ export default function Register() {
       </Box>
 
       <Button onPress={navigateToRegisterRent} text="PRÓXIMO" />
-      
+
     </Container>
   </ScrollView>
   );
