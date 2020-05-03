@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 export const Container = styled.SafeAreaView`
      flex: 1;
      align-items: center;
-     padding-top: ${Constants.statusBarHeight + 10}px;
+     padding-top: ${Constants.statusBarHeight + 40}px;
      background: #fff;
 `;
 

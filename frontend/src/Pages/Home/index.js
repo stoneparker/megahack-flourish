@@ -4,7 +4,7 @@ import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { FlatList, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 
 import { PieChart } from 'react-native-svg-charts';
-// import * as Progress from 'react-native-progress';
+import * as Progress from 'react-native-progress';
 // import { ART } from 'react-native';
 // import {Surface, Shape} from '@react-native-community/art';
 import ModalMenu from '../../Components/ModalMenu';
@@ -125,6 +125,7 @@ export default function Home() {
                       <DeadlineCard>Prazo: 20/12/2020</DeadlineCard>
                       
                       <ContainerProgressBar>
+                        <Progress.Bar width={150} height={10} borderWidth={0} indeterminate={false} progress={0.7} color="#F0C419" unfilledColor="#C4C4C4" />
                       </ContainerProgressBar>
                     </View>
                     <IconsCard>
