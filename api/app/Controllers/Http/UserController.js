@@ -76,8 +76,8 @@ class UserController {
    * @param {Response} ctx.response
    */
   async session ({ request, response }) {
-    const { name, password } = request.only(['name', 'password']);
-    const user = await User.findByOrFail({ name, password });
+    const { email, password } = request.only(['email', 'password']);
+    const user = await User.findByOrFail({ email, password });
 
     return response.json({id: user.id_user});
   }
