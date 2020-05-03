@@ -3,7 +3,6 @@ import { View, Text, Image, Picker, Button, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Container, Title, Viewer, FinishButton, SaveAddButton, ListGoals } from './styles';
 import { Input } from './../../Components/Input';
-import RNPickerSelect from 'react-native-picker-select';
 
 export default function RegisterGoals() {
 

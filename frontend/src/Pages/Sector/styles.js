@@ -4,7 +4,7 @@ export const Container = styled.ScrollView`
      flex: 1;
 `;
 
-export const Content = styled.View`
+export const Content = styled.SafeAreaView`
      align-items: center;
 `;
 
