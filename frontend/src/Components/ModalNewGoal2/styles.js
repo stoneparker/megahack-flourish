@@ -14,7 +14,9 @@ export const Container = styled.TouchableOpacity`
      z-index: 6;
 `;
 
-export const Content = styled.View`
+export const Content = styled.TouchableOpacity.attrs({
+     activeOpacity: 1
+})`
      justify-content: center;
      align-items: center;
 
@@ -37,14 +39,6 @@ export const Filter = styled.TouchableOpacity.attrs({
 export const Title = styled.Text`
      font-size: 24px;
      color: rgba(0, 0, 0, 0.8);
-     margin-bottom: 20px;
-`;
-
-export const Calendar = styled.View`
-     width: 100%;
-     height: 250px;
-     background: #999;
-     margin-bottom: 20px;
 `;
 
 export const Text = styled.Text`
@@ -52,4 +46,5 @@ export const Text = styled.Text`
      text-align: center;
      color: #474747;
      margin-bottom: 20px;
+     margin-top: 20px;
 `;
