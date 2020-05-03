@@ -1,13 +1,10 @@
 import React from 'react';
-
-import { View, Text, Image, Button } from 'react-native';
-
-
 import { useNavigation } from '@react-navigation/native';
-import { Input } from './../../Components/Input';
-import { Container, Title, LoginButton } from './styles';
-import { render } from 'react-dom';
 
+import { Container, Title, Label } from '../../Utils/Styles/GlobalStyles';
+import Header from '../../Components/Header';
+import Button from '../../Components/Button';
+import { Input } from './../../Components/Input';
 
 export default function Login() {
   
@@ -23,32 +20,19 @@ export default function Login() {
 
   return (
     <Container>
-    
-    <View style={{marginTop: 80, marginBottom: 50}}>
-      <Image 
-        style={{width: 250}}
-        source={require('./../../../assets/logotipo.png')}
-      />
+      <Header title="Faça seu login e entre nessa economia!"/>
 
-      <Text style={{paddingBottom: 20, bottom: 50, color: '#4F4F4F', width: 150 }}>Faça seu login e entre nessa economia!</Text>
-    </View>
+      <Title>Usuário</Title>
+      <Input />
+
+      <Title >Senha</Title>
+      <Input />
+
+      <Label>Esqueci a senha</Label>
       
-      
-          <Title>  Usuário</Title>
-          <Input />
+      <Button onPress={navigateToHome} text="ENTRAR" />
 
-          <Title >Senha</Title>
-          <Input />
-      
-
-
-        <Text style={{textAlign: "center", color: "#4F4F4F"}}>Esqueci a senha</Text>
-        
-        <LoginButton onPress={navigateToHome}><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10}}>Entrar</Text></LoginButton>
-
-        <Text onPress={navigateToRegister} style={{textAlign: "center", color: "#4F4F4F", marginBottom: 50}}>Não possui um cadastro?</Text>
-
-      
+      <Label onPress={navigateToRegister}>Não possui um cadastro?</Label>
     </Container>
   );
   
