@@ -39,14 +39,6 @@ export const Filter = styled.TouchableOpacity.attrs({
 export const Title = styled.Text`
      font-size: 24px;
      color: rgba(0, 0, 0, 0.8);
-     margin-bottom: 20px;
-`;
-
-export const CalendarView = styled.View`
-     width: 100%;
-     height: 250px;
-     background: #999;
-     margin-bottom: 20px;
 `;
 
 export const Text = styled.Text`

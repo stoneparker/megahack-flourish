@@ -24,6 +24,9 @@ export default function Routes() {
                          elevation: 0,
                          backgroundColor: 'transparent'
                     },
+                    headerTransparent: {
+                         position: 'absolute',
+                    },
                     title: '',
                }} >
                     <AppStack.Screen name="Register" component={Register} />

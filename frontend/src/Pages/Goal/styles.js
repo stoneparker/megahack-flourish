@@ -1,8 +1,11 @@
 import styled from 'styled-components/native';
+import Constants from 'expo-constants';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
      flex: 1;
      align-items: center;
+     padding-top: ${Constants.statusBarHeight + 40}px;
+     background: #fff;
 `;
 
 export const Title = styled.Text`

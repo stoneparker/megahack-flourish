@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal from 'react-native-modal';
 import { View } from 'react-native';
 
+import { DatePickerStyled } from '../ModalNewSpent/styles';
+
 import { 
      Content, 
      Filter, 
@@ -46,7 +48,6 @@ export default function ModalNewDebt({ setModalNewDebtVisible, isVisible }) {
                               </View>
                               <Input value={name} onChangeText={text => setName(text)} />
                          </Field>
-
                          <Field>
                               <View style={{ width: '100%' }}>
                                    <Label>Valor:</Label>
@@ -63,7 +64,11 @@ export default function ModalNewDebt({ setModalNewDebtVisible, isVisible }) {
                               <View style={{ width: '100%' }}>
                                    <Label>Data:</Label>
                               </View> 
-                              <Input value={date} onChangeText={text => setDate(text)} />                 
+                              <DatePickerStyled
+                                   value={date}
+                                   placeholder={date}
+                                   onDateChange={date => setDate(date)}
+                              />                
                          </Field>
                          <Options>
                               <BtnCancel onPress={closeModalNew}>

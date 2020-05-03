@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import DatePicker from 'react-native-datepicker';
 
 export const Container = styled.TouchableOpacity`
      display: ${props => props.isVisible === false ? 'none' : 'flex'};
@@ -71,7 +72,6 @@ export const ListPicker = styled.View`
      padding: 0 10px;
      margin-bottom: 17px;
 `;
-
 export const Picker = styled.Picker`
      color: #fff;
      font-family: 'Fredoka One';
@@ -104,4 +104,21 @@ export const TextBtnNext = styled.Text`
      color: #fff;
      letter-spacing: 1.3px;
      font-size:  15px;
+`;
+
+export const DatePickerStyled = styled(DatePicker).attrs({
+     mode: 'date',
+     display: 'default',
+     format: 'DD/MM/YYYY',
+     showIcon: false,
+     customStyles: {
+          placeholderText: { color: '#fff' },
+          dateInput: { borderWidth: 0 }
+     }
+})`
+     width: 100%;
+     height: 40px;
+     margin-bottom: 17px;
+     background: #51B2BC;
+     border-radius: 30px;
 `;

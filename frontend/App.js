@@ -1,30 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppLoading } from 'expo';
 import { setCustomText } from 'react-native-global-props';
+import { StatusBar } from 'react-native';
 import { useFonts } from '@use-expo/font';
 import * as Font from 'expo-font';
 
 import Routes from './src/routes';
 
 export default function App() {
-  const [fontsLoaded] = useFonts({ 'Fredoka One': require('./assets/fonts/FredokaOne-Regular.ttf') })
-
-  // definindo propriedades globais de estilização
-
-  const customTextProps = {
-    style: {
-        fontFamily: 'Fredoka One',
-        color: '#000'
+  const [fontLoaded, setFontLoaded] = useState(false);
+  useEffect(()=>{
+    async function loadFont() {
+      await Expo.Font.loadAsync({
+        'Fredoka One': require('./assets/fonts/FredokaOne-Regular.ttf'),
+      });
+      const customTextProps = {
+        style: {
+            fontFamily: 'Fredoka One',
+            color: '#000'
+        }
+      }
+    
+      setCustomText(customTextProps);
+      setFontLoaded(true)
     }
-  }
-  
-  setCustomText(customTextProps);
+    loadFont();
+  });
 
-  if (!fontsLoaded) {
+  if (!fontLoaded) {
     return <AppLoading />
   } else {
     return (
-      <Routes />
+      <>
+        <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+        <Routes />
+      </>
     );
   }
 }
