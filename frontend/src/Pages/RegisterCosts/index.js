@@ -33,8 +33,8 @@ export default function RegisterCosts() {
           </View>
         </View>
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '80%', marginBottom: 25}}>
-          <Text style={{fontSize: 24}}>Adicionar</Text>
-          <Text style={{fontSize: 36}}>+</Text>
+          <Text style={{fontSize: 24, color: '#F8D332'}}>Adicionar</Text>
+          <Text style={{fontSize: 36, color: '#F8D332'}}>+</Text>
         </View>
 
         <Text style={{fontSize: 17, marginBottom: 15, alignSelf: 'flex-start', marginLeft: 25}}>Dívidas...</Text>
@@ -49,8 +49,8 @@ export default function RegisterCosts() {
           </View>
         </View>
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', width: '80%', marginBottom: 25}}>
-          <Text style={{fontSize: 24}}>Adicionar</Text>
-          <Text style={{fontSize: 36}}>+</Text>
+          <Text style={{fontSize: 24, color: '#F8D332'}}>Adicionar</Text>
+          <Text style={{fontSize: 36, color: '#F8D332'}}>+</Text>
         </View>
         <NextButton onPress={navigateToRegisterGoals}><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>PRÓXIMO</Text></NextButton>
 
