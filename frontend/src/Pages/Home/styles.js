@@ -1,10 +1,9 @@
 import styled from 'styled-components/native';
-import Constants from 'expo-constants';
-
 
 export const Container = styled.SafeAreaView`
      flex: 1;
-     padding-top: ${Constants.statusBarHeight + 10}px;
+     padding-top: 20px;
+     background: #fff;
 `;
 
 export const PlusButton = styled.TouchableOpacity`

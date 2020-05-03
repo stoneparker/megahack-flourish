@@ -83,7 +83,7 @@ export default function RegisterGoals() {
       })()}
 
 
-    <SaveAddButton><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>SALVAR E ADICIONAR OUTRA</Text></SaveAddButton>
+    <SaveAddButton><Text style={{textAlign: "center", color: "white", fontSize: 18, top: 10, letterSpacing: 1.2}}>SALVAR E ADICIONAR OUTRA</Text></SaveAddButton>
     <FinishButton onPress={navigateToHome}><Text style={{textAlign: "center", color: "white", fontSize: 20, top: 10, letterSpacing: 1.2}}>FINALIZAR</Text></FinishButton>
 
      </Container>
