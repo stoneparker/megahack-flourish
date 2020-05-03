@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 import Constants from 'expo-constants';
 
-
 export const Container = styled.SafeAreaView`
      flex: 1;
      padding-top: ${Constants.statusBarHeight + 10}px;
+     background: #fff;
 `;
 
 export const PlusButton = styled.TouchableOpacity`
@@ -80,6 +80,7 @@ export const Card = styled.TouchableOpacity.attrs({
      margin: 10px;
      border-radius: 13px;
      padding: 15px;
+     elevation: 7;
 
      justify-content: space-between;
 `;

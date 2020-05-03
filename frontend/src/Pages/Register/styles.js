@@ -1,9 +1,11 @@
 import styled from 'styled-components/native';
+import Constants from 'expo-constants';
 
 export const Container = styled.SafeAreaView`
      flex: 1;
      justify-content: center;
      align-items: center;
+     background: #fff;
 `;
 
 export const Title = styled.Text`

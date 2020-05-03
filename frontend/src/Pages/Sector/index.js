@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
-// import * as Progress from 'react-native-progress';
+import * as Progress from 'react-native-progress';
 
 import ModalDelete from '../../Components/ModalDelete';
 
@@ -59,7 +59,8 @@ export default function Sector() {
         </Options>
 
         <SubTitle>Seus gastos</SubTitle>
-        
+        <Progress.Bar width={300} height={10} borderWidth={0} indeterminate={false} progress={0.7} color="#79C255" unfilledColor="#C4C4C4" />
+
         <Spending>
           {data.teste.map(teste => 
             <Card key={teste}>
