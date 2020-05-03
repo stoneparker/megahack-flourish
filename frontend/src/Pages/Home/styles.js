@@ -80,6 +80,7 @@ export const Card = styled.TouchableOpacity.attrs({
      margin: 10px;
      border-radius: 13px;
      padding: 15px;
+     elevation: 5;
 
      justify-content: space-between;
 `;
