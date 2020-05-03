@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
-    margin-top: 50px;
+    padding-top: 50px;
     flex: 1;
     justify-content: center;
     align-items: center;
+    background: #fff;
 `;
 
 export const Title = styled.Text`
