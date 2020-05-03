@@ -3,7 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { FlatList, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 
-import * as Progress from 'react-native-progress';
+import { PieChart } from 'react-native-svg-charts'
+// import * as Progress from 'react-native-progress';
 // import { ART } from 'react-native';
 // import {Surface, Shape} from '@react-native-community/art';
 import ModalMenu from '../../Components/ModalMenu';
@@ -72,7 +73,6 @@ export default function Home() {
             <MoneyLeftlover>R$ 2345,95</MoneyLeftlover>
           </Leftlover>
         </ContainerLeftlover>
-
         <ScrollView showsVerticalScrollIndicator={false}>
           <Scroll>
             <Title>Despesas</Title>
@@ -85,15 +85,12 @@ export default function Home() {
                 renderItem={(item) => (
                   <Card onPress={navigateToSector}>
                     <ContainerTitle><CardTitle>Alimentação</CardTitle></ContainerTitle>
-                    <Chart>
-                      <Progress.Pie size={88} color="rgba(240, 120, 90, 1)" unfilledColor="rgba(240, 196, 25, 0.9)" borderWidth={0} indeterminate={false} progress={0.7} />
-                    </Chart>
+                    <PieChart style={{ height: 120 }} data={[{value: 75, svg: {fill: 'rgb(255, 69, 61)'}, key: 'pie-1'}, {value: 15, svg: {fill: 'rgb(200, 200, 200)'}, key: 'pie-2'}]} />
                   </Card>
                 )}
               />
             </CardsContainer>
           </Scroll>
-
           <Scroll>
             <Title>Metas</Title>
             <CardsContainer>
@@ -105,9 +102,7 @@ export default function Home() {
                 renderItem={(item) => (
                   <Card onPress={navigateToGoal}>
                     <ContainerTitle><CardTitle>Alimentação</CardTitle></ContainerTitle>
-                    <Chart>
-                      <Progress.Pie size={88} color="#482483" unfilledColor="#19F062" borderWidth={0} indeterminate={false} progress={0.9} />
-                    </Chart>
+                    <PieChart style={{ height: 120 }} data={[{value: 75, svg: {fill: 'rgb(255, 69, 61)'}, key: 'pie-1'}, {value: 15, svg: {fill: 'rgb(200, 200, 200)'}, key: 'pie-2'}]} />
                   </Card>
                 )}
               />
@@ -130,7 +125,6 @@ export default function Home() {
                       <DeadlineCard>Prazo: 20/12/2020</DeadlineCard>
                       
                       <ContainerProgressBar>
-                        <Progress.Bar width={150} height={10} borderWidth={0} indeterminate={false} progress={0.7} color="#F0C419" unfilledColor="#C4C4C4" />
                       </ContainerProgressBar>
                     </View>
                     <IconsCard>
