@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import Constants from 'expo-constants';
 
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
      flex: 1;
      padding-top: ${Constants.statusBarHeight + 10}px;
 `;
@@ -87,15 +87,15 @@ export const Card = styled.TouchableOpacity.attrs({
 
 export const ContainerTitle = styled.View`
      align-self: flex-start;
+     margin-bottom: 5px;
+     border-bottom-width: 5px;
+     border-bottom-color: #F8D332;
 `;
 
 export const CardTitle = styled.Text`
      color: #fff;
      font-size: 20px;
-     border: 5px solid #F8D332;
-     border-top-width: 0;
-     border-right-width: 0;
-     border-left-width: 0;
+     border-style: solid;
      border-radius: 2px;
      /* width: 80%; */
 `;
