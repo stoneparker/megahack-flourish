@@ -6,20 +6,22 @@ export const Container = styled.View`
      align-items: center;
 `;
 
-
 export const Title = styled.Text`
 	font-size: 20px;
     color: #4F4F4F;
-    position: relative;
+    padding-right: 65%;
+    margin-bottom: 2%;
+    
 `;
 
 export const LoginButton = styled.TouchableOpacity`
     border-radius: 30px;
-    width: 370px;
-    height: 50px;
+    width: 90%;
+    height: 7%;
     background: #79C255;
-    top: 80px;
-
+    margin-bottom: 5%;
+    margin-top: 5%;
+   
 
 `;
 

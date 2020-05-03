@@ -1,26 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import Modal from 'react-native-modal';
 
-import { Container, Modal, Option } from './styles';
+import ModalNewGoal from '../ModalNewGoal';
+import ModalNewDebt from '../ModalNewDebt';
+import ModalNewSpent from '../ModalNewSpent';
 
-export default function ModalMenu({ state }) {
-     const [stateModal, setStateModal] = useState(state);
+import { Container, Option, Menu, Filter, TextOption } from './styles';
+
+export default function ModalMenu({ setModalMenuVisible, isVisible }) {
+     const [modalNewGoalVisible, setModalNewGoalVisible] = useState(false);
+     const [modalNewDebtVisible, setModalNewDebtVisible] = useState(false);
+     const [modalNewSpentVisible, setModalNewSpentVisible] = useState(false);
 
      function closeModalMenu() {
-          setStateModal('close');
+          setModalMenuVisible(false);
      }
 
-     // useEffect(() => {
-     //      setStateModal('open')
-     // }, [state])
+     function openModalNewGoal() {
+          closeModalMenu();
+          setModalNewGoalVisible(!modalNewGoalVisible);
+     }
+
+     function openModalNewDebt() {
+          closeModalMenu();
+          setModalNewDebtVisible(!modalNewDebtVisible);
+     }
+
+     function openModalNewSpent() {
+          closeModalMenu();
+          setModalNewSpentVisible(!modalNewSpentVisible);
+     }
 
      return (
-     <Container state={stateModal} onPress={closeModalMenu}>
-          <Modal>
-               <Option>Novo gasto</Option>
-               <Option>Nova meta</Option>
-               <Option>Nova dívida</Option>
-          </Modal>
-     </Container>
-);
+          <>
+               <Modal isVisible={isVisible}>
+                    <Filter onPress={closeModalMenu}>
+                         <Menu>
+                              <Option>
+                                   <TextOption onPress={openModalNewSpent}>Novo gasto</TextOption>
+                              </Option>
+                              <Option>
+                                   <TextOption onPress={openModalNewGoal}>Nova meta</TextOption>
+                              </Option>
+                              <Option position="last">
+                                   <TextOption onPress={openModalNewDebt}>Nova dívida</TextOption>
+                              </Option>
+                         </Menu>
+                    </Filter>
+               </Modal>
+
+               <ModalNewGoal setModalNewGoalVisible={setModalNewGoalVisible} isVisible={modalNewGoalVisible} />     
+               <ModalNewDebt setModalNewDebtVisible={setModalNewDebtVisible} isVisible={modalNewDebtVisible} />   
+               <ModalNewSpent setModalNewSpentVisible={setModalNewSpentVisible} isVisible={modalNewSpentVisible} />   
+          </>
+     );
 }

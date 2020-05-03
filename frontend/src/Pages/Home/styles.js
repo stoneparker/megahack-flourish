@@ -55,8 +55,6 @@ export const MoneyLeftlover = styled.Text`
      text-align: center;
 `;
 
-export const ContainerScrolls = styled.ScrollView``;
-
 export const Scroll = styled.View`
      margin-bottom: 20px;
 `;
@@ -86,13 +84,19 @@ export const Card = styled.TouchableOpacity.attrs({
      justify-content: space-between;
 `;
 
+export const ContainerTitle = styled.View`
+     align-self: flex-start;
+`;
+
 export const CardTitle = styled.Text`
      color: #fff;
      font-size: 20px;
-     border: 3px solid #F8D332;
+     border: 5px solid #F8D332;
      border-top-width: 0;
      border-right-width: 0;
      border-left-width: 0;
+     border-radius: 2px;
+     /* width: 80%; */
 `;
 
 export const Chart = styled.View`
@@ -103,16 +107,11 @@ export const Chart = styled.View`
      align-items: center;
 `;
 
-export const DebtTitleCard = styled.Text`
-     font-size: 20px;
-     color: #fff;
-     margin-bottom: 10px;
-`;
-
 export const ValueCard = styled.Text`
      font-size: 20px;
      color: #fff;
      margin-bottom: 5px;
+     margin-top: 10px;
 `;
 
 export const DeadlineCard = styled.Text`

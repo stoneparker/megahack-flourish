@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Progress from 'react-native-progress';
+
+import ModalDelete from '../../Components/ModalDelete';
 
 import { 
   Container, 
@@ -18,6 +20,12 @@ import {
 } from './styles';
 
 export default function Goal() {
+  const [modalDeleteVisible, setModalDeleteVisible] = useState(false);
+
+  function openModalDelete() {
+    setModalDeleteVisible(!modalDeleteVisible);
+  }
+
   return (
     <Container>
          <Title>Viagem de Férias</Title>
@@ -37,7 +45,7 @@ export default function Goal() {
         <Progress.Bar width={300} height={10} borderWidth={0} indeterminate={false} progress={0.3} color="#F8D332" unfilledColor="#C4C4C4" />
 
         <Options>
-          <BtnOption>
+          <BtnOption onPress={openModalDelete} >
             <TextBtnOption>EXCLUIR</TextBtnOption>
           </BtnOption>
 
@@ -46,6 +54,7 @@ export default function Goal() {
           </BtnOption>
         </Options>
 
+        <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} />
     </Container>
   );
 }

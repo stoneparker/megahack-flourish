@@ -14,25 +14,18 @@ export const Container = styled.TouchableOpacity`
      z-index: 6;
 `;
 
-export const Menu = styled.View`
+export const Content = styled.TouchableOpacity.attrs({
+     activeOpacity: 1
+})`
      justify-content: center;
      align-items: center;
 
      background: #fff;
      /* padding: 20px 40px; */
      /* height: 100px; */
-     width: 60%;
-     padding: 10px 0;
+     width: 90%;
+     padding: 30px;
      border-radius: 10px;
-`;
-
-export const Option = styled.TouchableOpacity.attrs({
-     activeOpacity: 1
-})`
-     width: 100%;
-     padding: 10px 0;
-     border-bottom-width: ${props => props.position === "last" ? 0 : StyleSheet.hairlineWidth}px;
-     border-bottom-color: rgba(0, 0, 0, 0.2);
 `;
 
 export const Filter = styled.TouchableOpacity.attrs({
@@ -43,7 +36,23 @@ export const Filter = styled.TouchableOpacity.attrs({
      flex: 1;
 `;
 
-export const TextOption = styled.Text`
-     font-size: 20px;
+export const Title = styled.Text`
+     font-size: 24px;
+     color: rgba(0, 0, 0, 0.8);
+     margin-bottom: 20px;
+`;
+
+export const CalendarView = styled.View`
+     width: 100%;
+     height: 250px;
+     background: #999;
+     margin-bottom: 20px;
+`;
+
+export const Text = styled.Text`
+     font-size: 16px;
      text-align: center;
+     color: #474747;
+     margin-bottom: 20px;
+     margin-top: 20px;
 `;

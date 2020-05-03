@@ -21,18 +21,9 @@ export const Menu = styled.View`
      background: #fff;
      /* padding: 20px 40px; */
      /* height: 100px; */
-     width: 60%;
-     padding: 10px 0;
-     border-radius: 10px;
-`;
-
-export const Option = styled.TouchableOpacity.attrs({
-     activeOpacity: 1
-})`
-     width: 100%;
-     padding: 10px 0;
-     border-bottom-width: ${props => props.position === "last" ? 0 : StyleSheet.hairlineWidth}px;
-     border-bottom-color: rgba(0, 0, 0, 0.2);
+     width: 75%;
+     padding: 20px;
+     border-radius: 18px;
 `;
 
 export const Filter = styled.TouchableOpacity.attrs({
@@ -43,7 +34,36 @@ export const Filter = styled.TouchableOpacity.attrs({
      flex: 1;
 `;
 
-export const TextOption = styled.Text`
-     font-size: 20px;
+export const Text = styled.Text`
+     font-size: 18px;
      text-align: center;
+     color: #4F4F4F;
+     margin-bottom: 10px;
+`;
+
+export const Options = styled.View`
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     width: 90%;
+`;
+
+export const BtnCancel = styled.TouchableOpacity`
+`;
+
+export const TextBtnCancel = styled.Text`
+     font-size: 13px;
+     color: rgba(79, 79, 79, 0.54);
+`;
+
+export const BtnDelete = styled.TouchableOpacity`
+     background: #AB2626;
+     padding: 13px 15px;
+     border-radius: 15px;
+`;
+
+export const TextBtnDelete = styled.Text`
+     color: #fff;
+     letter-spacing: 1.2px;
+     font-size: 15px;
 `;
