@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { FlatList, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 
-import { PieChart } from 'react-native-svg-charts'
+import { PieChart } from 'react-native-svg-charts';
 // import * as Progress from 'react-native-progress';
 // import { ART } from 'react-native';
 // import {Surface, Shape} from '@react-native-community/art';
