@@ -3,8 +3,8 @@ import { ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
-import { LabelAdd } from '../../Components/LabelAdd';
-import { List } from '../../Components/List';
+import LabelAdd from '../../Components/LabelAdd';
+import List from '../../Components/List';
 import { Container } from '../../Utils/Styles/GlobalStyles';
 import Header from '../../Components/Header';
 import Button from '../../Components/Button';
