@@ -21,6 +21,8 @@ export const DataInput = styled.TextInput`
     text-align: center;
     background: #51B2BC;
     border-radius: 30px;
+    font-family: 'Fredoka One';
+    font-size: 18px;
 `;
 
 export const GenInput = styled.TextInput`
@@ -30,6 +32,8 @@ export const GenInput = styled.TextInput`
     text-align: center;
     background: #51B2BC;
     border-radius: 30px;
+    font-family: 'Fredoka One';
+    font-size: 18px;
 `;
 
 export function SelectInput({selectedValue, setSelectedValue, data}) {

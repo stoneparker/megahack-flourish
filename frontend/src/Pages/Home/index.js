@@ -9,7 +9,6 @@ import * as Progress from 'react-native-progress';
 // import {Surface, Shape} from '@react-native-community/art';
 import ModalMenu from '../../Components/ModalMenu';
 import ModalDelete from '../../Components/ModalDelete';
-
 import api from '../../services/api';
 
 import { 
@@ -71,13 +70,18 @@ export default function Home() {
   }
 
   async function loadUserInfos() {
-    const responseGoals = await api.get('/user/1/goal/1');
-    const responseSectors = await api.get('/user/1/cost_type');
-    const responseDebts = await api.get('/user/1/debt');
+    try {
+      const responseGoals = await api.get('/user/1/goal/1');
+      const responseSectors = await api.get('/user/1/cost_type');
+      const responseDebts = await api.get('/user/1/debt');
 
-    setGoals(responseGoals.data);
-    setSectors(responseSectors.data);
-    setDebts(responseDebts.data);
+      setGoals(responseGoals.data);
+      setSectors(responseSectors.data);
+      setDebts(responseDebts.data);
+    } catch(e) {
+      alert('Hmmm, alguma coisa deu errado. Tente novamente mais tarde.');
+      console.log(e);
+    }
   }
 
   useEffect(() => {
@@ -175,7 +179,6 @@ export default function Home() {
 
       <ModalMenu setModalMenuVisible={setModalMenuVisible} isVisible={modalMenuVisible} />
       <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} setDeleteThis={setDeleteThis} deleteThis={deleteThis} routeToDelete={routeToDelete} setRouteToDelete={setRouteToDelete} />
-
     </Container>
   );
 }
