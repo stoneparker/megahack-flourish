@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {AsyncStorage} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CommonActions  } from '@react-navigation/native';
 
 import api from '../../services/api'
 import { Container, Title, Label } from '../../Utils/Styles/GlobalStyles';
@@ -24,8 +24,15 @@ export default function Login() {
         password
       });
       console.log(data.id)
-      await AsyncStorage.setItem('sessionUser', data.id.toString());
-      navigation.navigate('Home');
+      await AsyncStorage.setItem('SessionUser', data.id.toString());
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [
+            { name: 'Home' }
+          ],
+        })
+      );
     }
     catch (e) {
       alert('Usuário não encontrado')

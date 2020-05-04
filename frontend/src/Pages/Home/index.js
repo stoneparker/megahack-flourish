@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation  } from '@react-navigation/native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
-import { FlatList, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { FlatList, View, Text, TouchableOpacity, ScrollView, AsyncStorage } from 'react-native';
 
 import { PieChart } from 'react-native-svg-charts';
 import * as Progress from 'react-native-progress';
@@ -41,8 +41,7 @@ export default function Home() {
   const [deleteThis, setDeleteThis] = useState('');
   const [routeToDelete, setRouteToDelete] = useState('');
 
-  const navigation = useNavigation();
-
+  const navigate = useNavigation();
   function navigateToSector(sector) {
     navigation.navigate('Sector', { sector });
   }
@@ -85,8 +84,10 @@ export default function Home() {
   }
 
   useEffect(() => {
+
     loadUserInfos();
     console.ignoredYellowBox = ['Warning: VirtualizedLists', 'VirtualizedLists'];
+
   }, []);
 
   return (

@@ -20,7 +20,7 @@ import {
      BtnNext
 } from './styles';
 
-export default function ModalNewDebt({ setModalNewDebtVisible, isVisible }) {
+export default function ModalNewDebt({ setModalNewDebtVisible, isVisible, onHandledSubmit }) {
      const [name, setName] = useState('');
      const [value, setValue] = useState('');
      const [interest, setInterest] = useState('');
@@ -29,7 +29,7 @@ export default function ModalNewDebt({ setModalNewDebtVisible, isVisible }) {
      function closeModalNew() {
           setModalNewDebtVisible(false);
      }
-
+      
      async function createDebt() {
           alert('aqui');
           const data = {
