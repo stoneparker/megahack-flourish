@@ -38,6 +38,8 @@ export default function Home() {
   const [goals, setGoals] = useState([]);
   const [debts, setDebts] = useState([]);
   const [sectors, setSectors] = useState([]);
+  const [deleteThis, setDeleteThis] = useState('');
+  const [routeToDelete, setRouteToDelete] = useState('');
 
   const navigate = useNavigation();
   function navigateToSector(sector) {
@@ -56,8 +58,10 @@ export default function Home() {
     setModalMenuVisible(!modalMenuVisible);
   }
 
-  function openModalDelete() {
+  function openModalDelete(id, route) {
     setModalDeleteVisible(!modalDeleteVisible);
+    setDeleteThis(id);
+    setRouteToDelete(route);
   }
 
   const data = {
@@ -65,15 +69,18 @@ export default function Home() {
   }
 
   async function loadUserInfos() {
-    const id = AsyncStorage.getItem('SessionUser');
-    const responseGoals = await api.get(`/user/${id}/goal`);
-    const responseSectors = await api.get(`/user/${id}/cost_type`);
-    const responseDebts = await api.get(`/user/${id}/debt`);
+    try {
+      const responseGoals = await api.get('/user/1/goal/1');
+      const responseSectors = await api.get('/user/1/cost_type');
+      const responseDebts = await api.get('/user/1/debt');
 
-    setGoals(responseGoals.data);
-    setSectors(responseSectors.data);
-    setDebts(responseDebts.data);
-    console.log(responseGoals.data);
+      setGoals(responseGoals.data);
+      setSectors(responseSectors.data);
+      setDebts(responseDebts.data);
+    } catch(e) {
+      alert('Hmmm, alguma coisa deu errado. Tente novamente mais tarde.');
+      console.log(e);
+    }
   }
 
   useEffect(() => {
@@ -98,9 +105,10 @@ export default function Home() {
           <Scroll>
             <Title>Despesas</Title>
             <CardsContainer>
+            { sectors.length > 0 ?
               <FlatList 
                 data={sectors}
-                keyExtractor={item => String(item)}
+                keyExtractor={sector => String(sector.id_cost_type)}
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 renderItem={({ item: sector }) => (
@@ -110,14 +118,16 @@ export default function Home() {
                   </Card>
                 )}
               />
+              : <Title>Uau, parece que você não tem nenhuma despesa!</Title> }
             </CardsContainer>
           </Scroll>
           <Scroll>
             <Title>Metas</Title>
             <CardsContainer>
+              { goals.length > 0 ?
               <FlatList 
                 data={goals}
-                keyExtractor={item => String(item)}
+                keyExtractor={goal => String(goal.id_goal)}
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 renderItem={({ item: goal }) => (
@@ -127,15 +137,17 @@ export default function Home() {
                   </Card>
                 )}
               />
+              : <Title>Parece que você não tem nenhum meta :( </Title> }
             </CardsContainer>
           </Scroll>
 
           <Scroll>
             <Title>Dívidas</Title>
             <CardsContainer>
+            { debts.length > 0 ?
               <FlatList 
                 data={debts}
-                keyExtractor={item => String(item)}
+                keyExtractor={debt => String(debt.id_debts)}
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 renderItem={({ item: debt }) => (
@@ -151,11 +163,12 @@ export default function Home() {
                     </View>
                     <IconsCard>
                       <Feather name="edit" color="#fff" size={30} />
-                      <Feather name="trash-2" color="#fff" size={30} onPress={openModalDelete} />
+                      <Feather name="trash-2" color="#fff" size={30} onPress={() => openModalDelete(debt.id_debts, 'debt')} />
                     </IconsCard>
                   </Card>
                 )}
               />
+              : <Title>Ihu, parece que você quitou todas suas dívidas!</Title> }
             </CardsContainer>
           </Scroll>
 
@@ -166,7 +179,7 @@ export default function Home() {
       </PlusButton>
 
       <ModalMenu setModalMenuVisible={setModalMenuVisible} isVisible={modalMenuVisible} />
-      <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} />
+      <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} setDeleteThis={setDeleteThis} deleteThis={deleteThis} routeToDelete={routeToDelete} setRouteToDelete={setRouteToDelete} />
     </Container>
   );
 }
