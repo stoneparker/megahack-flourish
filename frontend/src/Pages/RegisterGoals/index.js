@@ -11,12 +11,24 @@ import { Input, SelectInput } from './../../Components/Input';
 export default function RegisterGoals() {
 
   const [selectedValue, setSelectedValue] = useState("Selecione...");
+  const [goalName, setGoalName] = useState('');
+  const [goalValue, setGoalValue] = useState('');
+  const [goalDate, setGoalDate] = useState('');
+  const [userGoals, setUserGoals] = useState([]);
 
   const navigation = useNavigation();
 
   function navigateToHome() {
     navigation.navigate('Home');
   } 
+
+  function RegisterGoals() {
+    setUserGoals(goals =>  [...goals, {name: goalName, value: goalValue, proportion: selectedValue, term: goalDate}]);
+    setSelectedValue("Selecione...");
+    setGoalName('');
+    setUserGoals('');
+
+  }
 
   async function registerFullUser() {
     const userData = await AsyncStorage.getItem('UserData');
@@ -48,6 +60,22 @@ export default function RegisterGoals() {
     });
     
 
+    if(goalName !== '' && goalValue !== '' && goalProportion !== 'Selecione...') {
+      setUserGoals(goals =>  [...goals, {name: goalName, value: goalValue, proportion: selectedValue}]);
+
+    }
+    try {
+    userGoals.map(async ({name, value, proportion})=> {
+      await api.post(`/user/${responseUserData.data.id}/goal`, {
+        name,
+        value,
+        proportion
+      });
+    });
+    }
+    catch {
+
+    }
     await AsyncStorage.setItem('sessionUser', responseUserData.data.id.toString());
     navigation.dispatch(
       CommonActions.reset({
@@ -56,6 +84,7 @@ export default function RegisterGoals() {
           { name: 'Home' }
         ],
     }));
+
   }
 
   const data = [
@@ -86,15 +115,18 @@ export default function RegisterGoals() {
       <Header title="Registre suas metas..." />
 
       <Title>Nome da meta:</Title>
-      <Input/>
+      <Input value={goalName} onChangeText={setGoalName} />
 
       <Title>Valor:</Title>
-      <Input/>
+      <Input value={goalValue} onChangeText={setGoalValue} />
 
       <Title>Proporção:</Title>
       <SelectInput selectedValue={selectedValue} setSelectedValue={setSelectedValue} data={data} />
+      
+      <Title>Data:</Title>
+      <Input selectedValue={goalDate} setSelectedValue={setGoalDate} />
 
-      <Button onPress={navigateToHome} text="SALVAR E ADICIONAR OUTRO" />
+      <Button onPress={RegisterGoals} background="#FFC326" text="SALVAR E ADICIONAR OUTRO" />
       <Button onPress={registerFullUser} text="FINALIZAR" />
     </Container>
   );

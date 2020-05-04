@@ -20,8 +20,9 @@ export default function RegisterCosts() {
   const [costsData, setCostsData] = useState([]);
   const [debtsData, setDebtsData] = useState([]);
   const [editCostData, setEditCostData] = useState({});
-  const [editDebtsData, setEditDebtsData] = useState({});
+  const [editDebtData, setEditDebtData] = useState({});
   const [editingCost, setEditingCost] = useState('');
+  const [editingDebt, setEditingDebt] = useState('');
 
   useEffect(()=>{
     async function getRent() {
@@ -71,6 +72,13 @@ export default function RegisterCosts() {
     setModalNewCostTypeVisible(true);
   }
 
+  function editDebt(item) {
+    const editItem = debtsData.find(debt => debt.key === item);
+    setEditDebtData({name: editItem.itemName, value: editItem.itemValue, interest: editItem.itemInterest, date: editItem.itemDate});
+    setEditingDebt(item);
+    setModalNewDebtVisible(true);
+  }
+
   async function registerCosts() {
     await AsyncStorage.setItem('UserCosts', JSON.stringify(costsData));
     await AsyncStorage.setItem('UserDebts', JSON.stringify(debtsData));
@@ -87,15 +95,30 @@ export default function RegisterCosts() {
       setEditingCost('');
     }
     else {
-      setCostsData(costs =>  [...costsData, {itemName: name, itemValue: value, key: "item-"+costsData.length+1}])
+      setCostsData(costs =>  [...costs, {itemName: name, itemValue: value, key: "item-"+(costs.length+1)}])
     }
   }
+
   function newDebt(name, value, interest, date) {
-    setDebtsData(debts =>  [...debts, {itemName: name, itemValue: value, itemInteres: interest, itemDate: date, key: "item-"+debts.length+1}])
+    if(editingDebt !== '') {
+      const index = editingDebt.substring(5, 6);
+      const newDebt = debtsData;
+      newDebt.splice(index-1, 1);
+      newDebt.splice(index-1, 0, {itemName: name, itemValue: value, itemInterest: interest, itemDate: date,  key: "item-"+index});
+      setDebtsData(newDebt);
+      setEditingCost('');
+    }
+    else {
+      setDebtsData(debts =>  [...debts, {itemName: name, itemValue: value, itemInterest: interest, itemDate: date, key: "item-"+(debts.length+1)}])
+    }
   }
   function openNewCost() {
     setEditCostData({}); 
     setModalNewCostTypeVisible(true);
+  }
+  function openNewDebt() {
+    setEditDebtData({}); 
+    setModalNewDebtVisible(true);
   }
   return (
       <Container>
@@ -108,16 +131,16 @@ export default function RegisterCosts() {
           </TouchableOpacity>
         </View>
         
-        <List title="Dívidas" data={debtsData} onEdit={(item)=>{alert(item)}} />
+        <List title="Dívidas" data={debtsData} onEdit={editDebt} />
         <View style={{width: '85%', margin: 0, padding: 0}}>
-          <TouchableOpacity style={{width: '120%', margin: 0, padding: 0, border: 0}} onPress={()=> setModalNewDebtVisible(true)}>
+          <TouchableOpacity style={{width: '120%', margin: 0, padding: 0, border: 0}} onPress={openNewDebt}>
             <LabelAdd />
           </TouchableOpacity>
         </View>
         <Button onPress={registerCosts} text="PRÓXIMO"/>
 
         <ModalNewCostType setModalNewCostTypeVisible={setModalNewCostTypeVisible} isVisible={modalNewCostTypeVisible} onHandledSubmit={newCostType} data={editCostData}></ModalNewCostType>
-        <ModalNewDebt setModalNewDebtVisible={setModalNewDebtVisible} isVisible={modalNewDebtVisible} onHandledSubmit={newDebt}></ModalNewDebt>
+        <ModalNewDebt setModalNewDebtVisible={setModalNewDebtVisible} isVisible={modalNewDebtVisible} onHandledSubmit={newDebt} data={editDebtData}></ModalNewDebt>
       </Container>
   );
 }

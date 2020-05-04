@@ -20,6 +20,7 @@ export default function ModalNewCostType({ setModalNewCostTypeVisible, isVisible
      const [name, setName] = useState(data.name);
      const [value, setValue] = useState(data.value);
      const [title, setTitle] = useState('Novo Gasto');
+     
      useEffect(()=>{
           if(data.name === undefined) {
                setName('');

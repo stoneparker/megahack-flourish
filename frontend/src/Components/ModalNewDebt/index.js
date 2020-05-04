@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-native-modal';
 import { View } from 'react-native';
 
@@ -18,11 +18,29 @@ import {
      BtnNext
 } from './styles';
 
-export default function ModalNewDebt({ setModalNewDebtVisible, isVisible, onHandledSubmit }) {
+export default function ModalNewDebt({ setModalNewDebtVisible, isVisible, onHandledSubmit, data }) {
      const [name, setName] = useState('');
      const [value, setValue] = useState('');
      const [interest, setInterest] = useState('');
+     const [title, setTitle] = useState('Novo Gasto');
      const [date, setDate] = useState('');
+
+     useEffect(()=>{
+          if(data.name === undefined) {
+               setName('');
+               setValue('');
+               setDate('');
+               setInterest('');
+               setTitle('Nova Dívida');
+          }
+          else {
+               setName(data.name);
+               setValue(data.value);
+               setDate(data.date);
+               setInterest(data.interest);
+               setTitle('Editar Dívida');
+          }
+     }, [data])
 
      function closeModalNew() {
           setModalNewDebtVisible(false);
@@ -41,7 +59,7 @@ export default function ModalNewDebt({ setModalNewDebtVisible, isVisible, onHand
           <Modal isVisible={isVisible}>
                <Filter onPress={() => closeModalNew}>
                     <Content>
-                         <Title>Nova dívida</Title>
+                         <Title>{title}</Title>
                          
                          <Field>
                               <View style={{ width: '100%' }}>

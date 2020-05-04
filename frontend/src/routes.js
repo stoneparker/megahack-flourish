@@ -19,7 +19,7 @@ const AppStack = createStackNavigator();
 export default function Routes() {
      return(
           <NavigationContainer>
-               <AppStack.Navigator initialRouteName="RegisterCosts" defaultNavigationOptions={{gesturesEnabled: false}} screenOptions={{
+               <AppStack.Navigator initialRouteName="Login" defaultNavigationOptions={{gesturesEnabled: false}} screenOptions={{
                     headerStyle: {
                          elevation: 0,
                          backgroundColor: 'transparent'
