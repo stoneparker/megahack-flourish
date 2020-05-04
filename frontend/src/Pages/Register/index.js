@@ -39,14 +39,14 @@ export default function Register() {
     }
     else {
       const data = {
-        username,
+        name: username,
         password,
         email,
         confirmPassword,
         birth_date,
         genre
       }
-      await AsyncStorage.setItem('UserData1', JSON.stringify(data));
+      await AsyncStorage.setItem('UserData', JSON.stringify(data));
       navigation.navigate('RegisterRent');
     }
   }
@@ -71,7 +71,7 @@ export default function Register() {
       <Box>
         <FirstBoxDivision>
           <Title>Data de Nascimento</Title>
-          <DataInput keyboardType="number-pad" value={birth_date} onChangeText={setBirthDate} />
+          <DataInput value={birth_date} onChangeText={setBirthDate} />
         </FirstBoxDivision>
         <SecondBoxDivision>
           <GenTitle>Gênero</GenTitle>

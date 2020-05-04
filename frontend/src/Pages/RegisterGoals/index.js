@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import {  } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
+import api from '../../services/api';
 import Header from '../../Components/Header';
 import Button from '../../Components/Button';
 import { Container, Title } from '../../Utils/Styles/GlobalStyles';
@@ -17,11 +17,41 @@ export default function RegisterGoals() {
   function navigateToHome() {
     navigation.navigate('Home');
   } 
-/*
+
   async function registerFullUser() {
-    await
+    const userData = await AsyncStorage.getItem('UserData');
+    const userRent = await AsyncStorage.getItem('UserRent');
+    const userCosts = await AsyncStorage.getItem('UserCosts');
+    const userDebts = await AsyncStorage.getItem('UserDebts');
+
+    const responseUserData = await api.post('/user', {
+      ...JSON.parse(userData),
+      rent: userRent
+    });
+
+    JSON.parse(UserCosts).map(({itemName, itemValue})=> {
+      let name = itemName;
+      let value = itemValue;
+      await api.post(`/user/${responseUserData.data.id}/cost_type`, {
+        name,
+        value
+      });
+    });
+
+    JSON.parse(userDebts).map(({itemName, itemValue})=> {
+        let name = itemName;
+        let value = itemValue;
+        await api.post(`/user/${responseUserData.data.id}/debt`, {
+          name,
+          value
+        });
+    });
+    
+
+    await AsyncStorage.setItem('sessionUser', responseUserData.data.id.toString());
+
   }
-*/
+
   const data = [
     {
       label: 'Selecione...',
@@ -59,7 +89,7 @@ export default function RegisterGoals() {
       <SelectInput selectedValue={selectedValue} setSelectedValue={setSelectedValue} data={data} />
 
       <Button onPress={navigateToHome} text="SALVAR E ADICIONAR OUTRO" />
-      <Button onPress={navigateToHome} text="FINALIZAR" />
+      <Button onPress={registerFullUser} text="FINALIZAR" />
     </Container>
   );
 }

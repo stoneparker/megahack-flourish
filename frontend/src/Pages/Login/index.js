@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {AsyncStorage, Alert} from 'react-native';
+import {AsyncStorage} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import api from '../../services/api'
