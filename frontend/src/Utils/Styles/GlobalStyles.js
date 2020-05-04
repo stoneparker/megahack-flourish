@@ -1,11 +1,14 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.SafeAreaView`
-    margin-top: 50px;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-`;
+export const Container = styled.ScrollView.attrs(() => ({
+    contentContainerStyle: {
+      flexGrow: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  }))`
+  margin-top: 50px
+  `;
 
 export const Title = styled.Text`
 	font-size: 20px;

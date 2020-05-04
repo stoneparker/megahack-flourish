@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { ScrollView, AsyncStorage } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { Input, DataInput, GenInput } from '../../Components/Input';
@@ -52,7 +52,6 @@ export default function Register() {
   }
 
   return (
-  <ScrollView>
     <Container>
         <Header title="Complete com suas informações..." />
 
@@ -61,18 +60,18 @@ export default function Register() {
         <Input value={username} onChangeText={setUsername} />
 
         <Title>Email</Title>
-        <Input value={email} onChangeText={setEmail} />
+        <Input keyboardType="email-address" autoCapitalize="none" autoCompleteType="email" value={email} onChangeText={setEmail} />
 
         <Title>Senha</Title>
-        <Input value={password} onChangeText={setPassword} />
+        <Input secureTextEntry={true} value={password} onChangeText={setPassword} />
 
         <Title>Confirmar Senha</Title>
-        <Input value={confirmPassword} onChangeText={setConfirmPassword} />
+        <Input secureTextEntry={true} value={confirmPassword} onChangeText={setConfirmPassword} />
 
       <Box>
         <FirstBoxDivision>
           <Title>Data de Nascimento</Title>
-          <DataInput value={birth_date} onChangeText={setBirthDate} />
+          <DataInput keyboardType="number-pad" value={birth_date} onChangeText={setBirthDate} />
         </FirstBoxDivision>
         <SecondBoxDivision>
           <GenTitle>Gênero</GenTitle>
@@ -84,7 +83,6 @@ export default function Register() {
       <Button onPress={registerUser} text="PRÓXIMO" />
 
     </Container>
-  </ScrollView>
   );
 }
 

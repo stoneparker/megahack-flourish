@@ -26,7 +26,7 @@ export default function Login() {
       <Input />
 
       <Title >Senha</Title>
-      <Input />
+      <Input secureTextEntry={true} />
 
       <Label>Esqueci a senha</Label>
       

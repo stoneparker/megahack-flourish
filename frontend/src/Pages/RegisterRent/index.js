@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Image, AsyncStorage } from 'react-native';
+import { View, Image, AsyncStorage, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { Input } from '../../Components/Input';
@@ -17,10 +17,6 @@ export default function RegisterRent() {
       alert('Preencha sua renda.');
       return;
     }
-    else if (parseFloat(rent).toString() === 'NaN') {
-      alert('Por favor só insira numeros e ponto (virgula)');
-      return;
-    }
     else {
       await AsyncStorage.setItem('UserRent', rent);
       navigation.navigate('RegisterCosts');
@@ -28,11 +24,12 @@ export default function RegisterRent() {
   }
 
   return (
-    <Container>
+    <Container
+    keyboardShouldPersistTaps='handled'>
       <Header title="Informe um pouco sobre suas finanças..." />
 
       <Title>Quanto você ganha?</Title>
-      <Input value={rent} onChangeText={setRent} />
+      <Input keyboardType="numeric" value={rent} onChangeText={setRent} />
 
       <View style={{flexDirection: "row"}}>
         <Image 

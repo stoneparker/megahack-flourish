@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { ScrollView, View, AsyncStorage } from 'react-native';
+import { View, AsyncStorage } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -73,7 +73,6 @@ export default function RegisterCosts() {
   }
 
   return (
-    <ScrollView>
       <Container>
         <Header title="Altere sua base de gastos..." />
 
@@ -95,6 +94,5 @@ export default function RegisterCosts() {
         <ModalNewSpent setModalNewSpentVisible={setModalNewSpentVisible} isVisible={modalNewSpentVisible}></ModalNewSpent>
         <ModalNewDebt setModalNewDebtVisible={setModalNewDebtVisible} isVisible={modalNewDebtVisible}></ModalNewDebt>
       </Container>
-    </ScrollView>
   );
 }
