@@ -2,7 +2,12 @@
 Organize suas finanças de maneira prática.
 
 ## O que é o Fifteen?
+Dentre os fatores que impedem os jovens adultos brasileiros de prossegir seus planejamentos financeiros, estão a má organização e o consumo desenfreado, consequentemente aliados no distanciamento entre esses jovens e a realização de suas metas pessoais.
+Pensando nisso, criamos o Finances For Teens - Fifteen -, um aplicativo de interface simplificada e interativa que atua através de estímulos baseados nos projetos pessoais do usuário, incentivando-o a manter a organização financeira para a realização de suas metas, além de fornecer um panorama simplificado do andamento de suas finanças.
 
+## Plataformas
+**Aplicativo Mobile**: O Fifteen disponibilizará diversas maneira práticas ao usuário de como controlar suas finanças, como a criação de gastos, dívidas e metas, além de uma analise geral de como está seu desempenho.
+**Web**: O Fifteen contará com uma extensão no Google Chrome que possibilitará o monitoramento do usuário em sites que possam atrapalhar sua jornada de controle de finanças
 
 ## 💻 Tecnologias do Servidor
 
