@@ -1,36 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {AsyncStorage, Alert} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import api from '../../services/api'
 import { Container, Title, Label } from '../../Utils/Styles/GlobalStyles';
 import Header from '../../Components/Header';
 import Button from '../../Components/Button';
 import { Input } from './../../Components/Input';
 
 export default function Login() {
-  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigation = useNavigation();
 
   function navigateToRegister() {
     navigation.navigate('Register');
   }
 
-  function navigateToHome() {
-    navigation.navigate('Home');
+  async function authentication() {
+    try {
+      const {data} = await api.post('/session', {
+        email,
+        password
+      });
+      console.log(data.id)
+      await AsyncStorage.setItem('sessionUser', data.id.toString());
+      navigation.navigate('Home');
+    }
+    catch (e) {
+      alert('Usuário não encontrado')
+    }
+
   }
 
   return (
     <Container>
       <Header title="Faça seu login e entre nessa economia!"/>
 
-      <Title>Usuário</Title>
-      <Input />
+      <Title>Email</Title>
+      <Input keyboardType="email-address" autoCapitalize="none" autoCompleteType="email" value={email} onChangeText={setEmail} />
 
       <Title >Senha</Title>
-      <Input secureTextEntry={true} />
+      <Input secureTextEntry={true} value={password} onChangeText={setPassword} />
 
-      <Label>Esqueci a senha</Label>
       
-      <Button onPress={navigateToHome} text="ENTRAR" />
+      <Button onPress={authentication} text="ENTRAR" />
 
       <Label onPress={navigateToRegister}>Não possui um cadastro?</Label>
     </Container>
