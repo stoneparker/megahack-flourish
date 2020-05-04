@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation  } from '@react-navigation/native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
-import { FlatList, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { FlatList, View, Text, TouchableOpacity, ScrollView, AsyncStorage } from 'react-native';
 
 import { PieChart } from 'react-native-svg-charts';
 import * as Progress from 'react-native-progress';
@@ -39,8 +39,7 @@ export default function Home() {
   const [debts, setDebts] = useState([]);
   const [sectors, setSectors] = useState([]);
 
-  const navigation = useNavigation();
-
+  const navigate = useNavigation();
   function navigateToSector(sector) {
     navigation.navigate('Sector', { sector });
   }
@@ -66,19 +65,22 @@ export default function Home() {
   }
 
   async function loadUserInfos() {
-    const responseGoals = await api.get('/user/1/goal/1');
-    const responseSectors = await api.get('/user/1/cost_type');
-    const responseDebts = await api.get('/user/1/debt');
+    const id = AsyncStorage.getItem('SessionUser');
+    const responseGoals = await api.get(`/user/${id}/goal`);
+    const responseSectors = await api.get(`/user/${id}/cost_type`);
+    const responseDebts = await api.get(`/user/${id}/debt`);
 
     setGoals(responseGoals.data);
     setSectors(responseSectors.data);
     setDebts(responseDebts.data);
-    console.log(debts);
+    console.log(responseGoals.data);
   }
 
   useEffect(() => {
+
     loadUserInfos();
     console.ignoredYellowBox = ['Warning: VirtualizedLists', 'VirtualizedLists'];
+
   }, []);
 
   return (

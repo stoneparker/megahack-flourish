@@ -1,16 +1,17 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function List({title, data}) {
+export default function List({title, data, onEdit}) {
     return (
         <View style={{width: '90%'}}>
             <Text style={styles.textTitle}>{title}</Text>
             <View style={styles.container}>
             {data.map((item)=> (
-                <View style={styles.itemContainer} key={item.key}>
+                <TouchableOpacity onPress={()=> onEdit(item.key)} style={styles.itemContainer} key={item.key}>
                     <Text style={styles.text}>{item.itemName}</Text>
                     <Text style={styles.text}>{item.itemValue}</Text>
-                </View>
+                </TouchableOpacity>
             ))}
             </View>
         </View>
@@ -24,14 +25,14 @@ const styles = StyleSheet.create({
         width: '90%'
     },
     container: {
-        alignItems: 'center'
+        alignItems: 'stretch',
+        width: '100%'
     },
     itemContainer: {
         alignItems: 'center', 
         justifyContent: 'space-between', 
         flexDirection: 'row', 
         backgroundColor: '#51B2BC',
-        width: '100%',
         padding: 10, 
         borderRadius: 26, 
         marginBottom: 15

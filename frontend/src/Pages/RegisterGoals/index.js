@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AsyncStorage } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CommonActions  } from '@react-navigation/native';
 
 import api from '../../services/api';
 import Header from '../../Components/Header';
@@ -29,7 +29,7 @@ export default function RegisterGoals() {
       rent: userRent
     });
 
-    JSON.parse(UserCosts).map(async ({itemName, itemValue})=> {
+    JSON.parse(userCosts).map(async ({itemName, itemValue})=> {
       let name = itemName;
       let value = itemValue;
       await api.post(`/user/${responseUserData.data.id}/cost_type`, {
@@ -49,7 +49,13 @@ export default function RegisterGoals() {
     
 
     await AsyncStorage.setItem('sessionUser', responseUserData.data.id.toString());
-
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          { name: 'Home' }
+        ],
+    }));
   }
 
   const data = [
