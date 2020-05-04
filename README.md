@@ -6,7 +6,7 @@ Dentre os fatores que impedem os jovens adultos brasileiros de prossegir seus pl
 Pensando nisso, criamos o Finances For Teens - Fifteen -, um aplicativo de interface simplificada e interativa que atua através de estímulos baseados nos projetos pessoais do usuário, incentivando-o a manter a organização financeira para a realização de suas metas, além de fornecer um panorama simplificado do andamento de suas finanças.
 
 ## Plataformas
-**Aplicativo Mobile**: O Fifteen disponibilizará diversas maneira práticas ao usuário de como controlar suas finanças, como a criação de gastos, dívidas e metas, além de uma analise geral de como está seu desempenho.
+**Aplicativo Mobile**: O Fifteen disponibilizará métodos práticos ao usuário de como fazer o controle de suas finanças, como a criação de gastos (fixos e variaváveis), dívidas e metas, além de uma analise geral de como está seu desempenho.  
 **Web**: O Fifteen contará com uma extensão no Google Chrome que possibilitará o monitoramento do usuário em sites que possam atrapalhar sua jornada de controle de finanças
 
 ## 💻 Tecnologias do Servidor
@@ -22,3 +22,22 @@ O servidor será escrito em [Javascript](https://www.javascript.com/), linguagem
 
 ### <img src="https://www.klipfolio.com/sites/default/files/integrations/My-SqlLogo.png" alt="MySQL" width="27px" align="center">  MySQL
 [MySQL](https://www.mysql.com/) é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL como interface. É atualmente um dos sistemas de gerenciamento de bancos de dados mais populares da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
+
+## 💻 Tecnologias do Front-end
+
+### <img src="https://i.pinimg.com/originals/84/b1/06/84b1065e798f61aa80b8670a4b6fbb4d.png" alt="React Native" width="25px" align="center"> React Native
+[React Native](https://reactnative.dev/) é uma biblioteca Javascript criada pelo Facebook. É usada para desenvolver aplicativos para os sistemas Android e IOS de forma nativa.
+
+### <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRhHQMDZ_SaLQWoszWJbIPz3XQK9ZS8Lfj_Ik-hbZ_nsVmbGrJN&usqp=CAU" alt="Expo" width="25px" align="center"> Expo
+[Expo](https://expo.io/) é uma plataforma de código aberto para criar aplicativos nativos universais para Android, iOS e web com JavaScript e [React](https://pt-br.reactjs.org/).
+
+### <img src="https://reactnavigation.org/img/spiro.svg" alt="Axios" width="25px" align="center"> React Navigation
+Roteamento e navegação para aplicativos [React Native](https://reactnative.dev/). Neste projeto, utilizamos apenas navegação Stack.
+
+### 💅Styled-components
+[Styled-components](https://styled-components.com/) é uma biblioteca utilizada para a criação de componentes com uma estilização personalizada a partir de seus parâmetros. 
+
+### <img src="https://i.ya-webdesign.com/images/global-icon-png-7.png" alt="Axios" width="25px" align="center"> Axios
+[Axios](https://github.com/axios/axios) é um cliente HTTP para comunicação com o servidor.
+
+
