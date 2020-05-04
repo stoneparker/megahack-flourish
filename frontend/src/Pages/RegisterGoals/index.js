@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -16,7 +17,11 @@ export default function RegisterGoals() {
   function navigateToHome() {
     navigation.navigate('Home');
   } 
-  
+/*
+  async function registerFullUser() {
+    await
+  }
+*/
   const data = [
     {
       label: 'Selecione...',
