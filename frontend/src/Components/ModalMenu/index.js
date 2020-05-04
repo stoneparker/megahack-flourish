@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-native-modal';
+import { useNavigation } from '@react-navigation/native';
 
 import ModalNewGoal from '../ModalNewGoal';
 import ModalNewDebt from '../ModalNewDebt';
@@ -12,22 +13,21 @@ export default function ModalMenu({ setModalMenuVisible, isVisible }) {
      const [modalNewDebtVisible, setModalNewDebtVisible] = useState(false);
      const [modalNewSpentVisible, setModalNewSpentVisible] = useState(false);
 
+     const navigation = useNavigation();
      function closeModalMenu() {
           setModalMenuVisible(false);
      }
 
      function openModalNewGoal() {
-          closeModalMenu();
           setModalNewGoalVisible(!modalNewGoalVisible);
+
      }
 
      function openModalNewDebt() {
-          closeModalMenu();
           setModalNewDebtVisible(!modalNewDebtVisible);
      }
 
      function openModalNewSpent() {
-          closeModalMenu();
           setModalNewSpentVisible(!modalNewSpentVisible);
      }
 
@@ -47,11 +47,12 @@ export default function ModalMenu({ setModalMenuVisible, isVisible }) {
                               </Option>
                          </Menu>
                     </Filter>
-               </Modal>
+                    
 
                <ModalNewGoal setModalNewGoalVisible={setModalNewGoalVisible} isVisible={modalNewGoalVisible} />     
                <ModalNewDebt setModalNewDebtVisible={setModalNewDebtVisible} isVisible={modalNewDebtVisible} />   
                <ModalNewSpent setModalNewSpentVisible={setModalNewSpentVisible} isVisible={modalNewSpentVisible} />   
+               </Modal>
           </>
      );
 }

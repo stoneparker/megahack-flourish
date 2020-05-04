@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { ScrollView, AsyncStorage } from 'react-native';
+import { ScrollView, View, AsyncStorage } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -78,15 +78,18 @@ export default function RegisterCosts() {
         <Header title="Altere sua base de gastos..." />
 
         <List title="Gastos" data={costsData} />
-        <TouchableOpacity style={{display: 'none'}} onPress={()=> setModalNewDebtVisible(true)}>
-          <LabelAdd />
-        </TouchableOpacity>
-
-        <List title="Dívidas" data={debtsData} />
-        <TouchableOpacity style={{display: 'none'}} onPress={()=> setModalNewSpentVisible(true)}>
-          <LabelAdd />
-        </TouchableOpacity>
-
+        <View style={{width: '85%', margin: 0, padding: 0}}>
+          <TouchableOpacity style={{width: '120%', margin: 0, padding: 0, border: 0}} onPress={()=> setModalNewSpentVisible(true)}>
+            <LabelAdd />
+          </TouchableOpacity>
+        </View>
+          <List title="Dívidas" data={debtsData} />
+          
+        <View style={{width: '85%', margin: 0, padding: 0}}>
+          <TouchableOpacity style={{width: '120%', margin: 0, padding: 0, border: 0}} onPress={()=> setModalNewDebtVisible(true)}>
+            <LabelAdd />
+          </TouchableOpacity>
+        </View>
         <Button onPress={registerCosts} text="PRÓXIMO"/>
 
         <ModalNewSpent setModalNewSpentVisible={setModalNewSpentVisible} isVisible={modalNewSpentVisible}></ModalNewSpent>

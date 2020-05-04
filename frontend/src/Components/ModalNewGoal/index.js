@@ -83,9 +83,9 @@ export default function ModalNewGoal({ setModalNewGoalVisible, isVisible }) {
                               </Options>
                          </Content>
                     </Filter>
+               <ModalNewGoal2 isVisible={modalNewGoal2Visible} setModalNewGoal2Visible={setModalNewGoal2Visible} />    
                </Modal>
-
-               <ModalNewGoal2 isVisible={modalNewGoal2Visible} setModalNewGoal2Visible={setModalNewGoal2Visible} />     
+ 
           </>
      );
 }

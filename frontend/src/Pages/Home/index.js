@@ -9,7 +9,6 @@ import { PieChart } from 'react-native-svg-charts'
 // import {Surface, Shape} from '@react-native-community/art';
 import ModalMenu from '../../Components/ModalMenu';
 import ModalDelete from '../../Components/ModalDelete';
-
 import { 
   Container, 
   PlusButton, 
@@ -145,7 +144,6 @@ export default function Home() {
 
       <ModalMenu setModalMenuVisible={setModalMenuVisible} isVisible={modalMenuVisible} />
       <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} />
-
     </Container>
   );
 }
