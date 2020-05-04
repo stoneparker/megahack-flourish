@@ -22,12 +22,18 @@ import {
 
 export default function Goal() {
   const [modalDeleteVisible, setModalDeleteVisible] = useState(false);
+  const [deleteThis, setDeleteThis] = useState('');
+  const [routeToDelete, setRouteToDelete] = useState('');
+
   const route = useRoute();
 
   const { goal } = route.params;
 
-  function openModalDelete() {
+  function openModalDelete(id, route) {
     setModalDeleteVisible(!modalDeleteVisible);
+    alert(route);
+    setDeleteThis(id);
+    setRouteToDelete(route);
   }
 
   const day = new Date().getDate();
@@ -53,7 +59,7 @@ export default function Goal() {
         <Progress.Bar width={300} height={10} borderWidth={0} indeterminate={false} progress={0.3} color="#F8D332" unfilledColor="#C4C4C4" />
 
         <Options>
-          <BtnOption onPress={openModalDelete} >
+          <BtnOption onPress={() => openModalDelete(goal.id_goal, 'goal')} >
             <TextBtnOption>EXCLUIR</TextBtnOption>
           </BtnOption>
 
@@ -62,7 +68,7 @@ export default function Goal() {
           </BtnOption>
         </Options>
 
-        <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} />
+        <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} setDeleteThis={setDeleteThis} deleteThis={deleteThis} routeToDelete={routeToDelete} setRouteToDelete={setRouteToDelete} />
     </Container>
   );
 }

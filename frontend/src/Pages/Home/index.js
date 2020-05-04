@@ -100,6 +100,7 @@ export default function Home() {
           <Scroll>
             <Title>Despesas</Title>
             <CardsContainer>
+            { sectors.length > 0 ?
               <FlatList 
                 data={sectors}
                 keyExtractor={sector => String(sector.id_cost_type)}
@@ -112,11 +113,13 @@ export default function Home() {
                   </Card>
                 )}
               />
+              : <Title>Uau, parece que você não tem nenhuma despesa!</Title> }
             </CardsContainer>
           </Scroll>
           <Scroll>
             <Title>Metas</Title>
             <CardsContainer>
+              { goals.length > 0 ?
               <FlatList 
                 data={goals}
                 keyExtractor={goal => String(goal.id_goal)}
@@ -129,12 +132,14 @@ export default function Home() {
                   </Card>
                 )}
               />
+              : <Title>Parece que você não tem nenhum meta :( </Title> }
             </CardsContainer>
           </Scroll>
 
           <Scroll>
             <Title>Dívidas</Title>
             <CardsContainer>
+            { debts.length > 0 ?
               <FlatList 
                 data={debts}
                 keyExtractor={debt => String(debt.id_debts)}
@@ -158,6 +163,7 @@ export default function Home() {
                   </Card>
                 )}
               />
+              : <Title>Ihu, parece que você quitou todas suas dívidas!</Title> }
             </CardsContainer>
           </Scroll>
 
