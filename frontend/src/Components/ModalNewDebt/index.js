@@ -4,6 +4,8 @@ import { View } from 'react-native';
 
 import { DatePickerStyled } from '../ModalNewSpent/styles';
 
+import api from '../../services/api';
+
 import { 
      Content, 
      Filter, 
@@ -27,14 +29,28 @@ export default function ModalNewDebt({ setModalNewDebtVisible, isVisible, onHand
      function closeModalNew() {
           setModalNewDebtVisible(false);
      }
+      
+     async function createDebt() {
+          alert('aqui');
+          const data = {
+               name,
+               value,
+               interest,
+               term: date
+          }
 
-     function nextStep() {
-          onHandledSubmit(name, value, interest, date);
-          closeModalNew();
-          setName('');
-          setValue('');
-          setDate('');
-          setInterest('');
+          try {
+               await api.post('/user/1/debt', data);
+               closeModalNew();
+               setName('');
+               setValue('');
+               setDate('');
+               setInterest('');
+               console.log('iha');
+
+          } catch(e) {
+               console.log(e);
+          }
      }
 
      return (
@@ -76,7 +92,7 @@ export default function ModalNewDebt({ setModalNewDebtVisible, isVisible, onHand
                                    <TextBtnCancel>CANCELAR</TextBtnCancel>
                               </BtnCancel>
                               <BtnNext>
-                                   <TextBtnNext onPress={nextStep}>VAMOS LÁ!</TextBtnNext>
+                                   <TextBtnNext onPress={createDebt}>VAMOS LÁ!</TextBtnNext>
                               </BtnNext>
                          </Options>
                     </Content>

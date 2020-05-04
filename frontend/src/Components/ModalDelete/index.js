@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import Modal from 'react-native-modal';
 
 import { BtnDelete, BtnCancel, TextBtnCancel, TextBtnDelete, Options, Menu, Filter, Text } from './styles';
 
-export default function ModalDelete({ setModalDeleteVisible, isVisible }) {
+import api from '../../services/api';
+
+export default function ModalDelete({ setModalDeleteVisible, isVisible, setDeleteThis, deleteThis , routeToDelete, setRouteToDelete }) {
+     const navigation = useNavigation();
+
      function closeModalMenu() {
           setModalDeleteVisible(false);
      }
-
-     function deleteAny() {
-          closeModalMenu();
+     async function deleteAny() {
+          try {
+               await api.delete(`${routeToDelete}/${deleteThis}`);
+               closeModalMenu();
+               setDeleteThis('');
+               setRouteToDelete('');
+               navigation.navigate('Home');
+          } catch(e) {
+               console.log(e);
+          }
+          
      }
 
      return (
