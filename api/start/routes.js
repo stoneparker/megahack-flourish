@@ -20,10 +20,11 @@ Route.post('user', 'UserController.store').validator('StoreUser')
 Route.post('session', 'UserController.session')
 Route.put('user/:id', 'UserController.update')
 // --
-Route.resource('user/:fk_user/goal', 'GoalController').apiOnly().except(['index', 'destroy']).validator(new Map([
+Route.resource('user/:fk_user/goal', 'GoalController').apiOnly().except(['index', 'destroy', 'show']).validator(new Map([
   [['user/:fk_user/goal.store'], ['StoreGoal']],
   // [['user/:fk_user/goal.update'], ['UpdateUser']]
 ]))
+Route.get('user/:fk_user/goal', 'GoalController.show')
 Route.delete('goal/:id', 'GoalController.destroy')
 
 // --
