@@ -1,7 +1,10 @@
 import styled from 'styled-components/native';
+import Constants from 'expo-constants';
 
 export const Container = styled.ScrollView`
      flex: 1;
+     background: #fff;
+     padding-top: ${Constants.statusBarHeight + 40}px;
 `;
 
 export const Content = styled.SafeAreaView`

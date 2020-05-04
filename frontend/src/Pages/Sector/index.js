@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRoute } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
-// import * as Progress from 'react-native-progress';
+import * as Progress from 'react-native-progress';
 
 import ModalDelete from '../../Components/ModalDelete';
+
+import api from '../../services/api';
 
 import { 
   Container, 
@@ -27,6 +30,11 @@ import { Title } from '../Goal/styles';
 
 export default function Sector() {
   const [modalDeleteVisible, setModalDeleteVisible] = useState(false);
+  const [costs, setCosts] = useState([]);
+
+  const route = useRoute();
+
+  const { sector } = route.params;
 
   function openModalDelete() {
     setModalDeleteVisible(!modalDeleteVisible);
@@ -40,14 +48,24 @@ export default function Sector() {
     
   }
 
+  async function loadCosts() {
+    const response = await api.get(`/cost_type/${sector.id_cost_type}/cost`);
+    setCosts(response.data);
+    console.log(costs[0]);
+  }
+
+  useEffect(() => {
+    loadCosts();
+  }, []);
+
   return (
     <Container>
       <Content>
-         <Title>Alimentação</Title>
-         
-         <InfoSector>
-           <Value>R$ 900,00/mês</Value>
-         </InfoSector>
+        <Title>{sector.name}</Title>
+        
+        <InfoSector>
+          <Value>R$ {sector.value}/mês</Value>
+        </InfoSector>
 
         <Options>
           <BtnOption>
@@ -59,16 +77,17 @@ export default function Sector() {
         </Options>
 
         <SubTitle>Seus gastos</SubTitle>
-        
+        <Progress.Bar width={300} height={10} borderWidth={0} indeterminate={false} progress={0.7} color="#79C255" unfilledColor="#C4C4C4" />
+
         <Spending>
-          {data.teste.map(teste => 
-            <Card key={teste}>
+          {costs.map(cost => 
+            <Card key={cost.id_cost}>
               <InfosExpense>
                 <FirstLine>
-                  <TitleExpense editable={false} autoFocus>Mercado</TitleExpense>
+                  <TitleExpense editable={false} autoFocus>{cost.name}</TitleExpense>
                   <DateExpense>(20/12/2019)</DateExpense>
                 </FirstLine>
-                <ValueExpense>R$ 420,00</ValueExpense>
+                <ValueExpense>R$ {cost.value}</ValueExpense>
               </InfosExpense>
               <IconsCard>
                 <Feather name="trash-2" color="#fff" size={22} onPress={openModalDelete} />

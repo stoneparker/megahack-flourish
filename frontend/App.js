@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AppLoading } from 'expo';
 import { setCustomText } from 'react-native-global-props';
+import { StatusBar } from 'react-native';
 import { useFonts } from '@use-expo/font';
 import * as Font from 'expo-font';
 
@@ -30,7 +31,10 @@ export default function App() {
     return <AppLoading />
   } else {
     return (
-      <Routes />
+      <>
+        <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+        <Routes />
+      </>
     );
   }
 }

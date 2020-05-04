@@ -65,8 +65,7 @@ export default function ModalNewGoal({ setModalNewGoalVisible, isVisible }) {
                                    <ListPicker>
                                         <Picker
                                              selectedValue={proportion}
-                                             onValueChange={(itemValue, itemIndex) => setProportion(itemValue)}
-                                        >
+                                             onValueChange={(itemValue, itemIndex) => setProportion(itemValue)}>
                                              <Picker.Item label="Metinha" value="metinha" />
                                              <Picker.Item label="Meta" value="meta" />
                                              <Picker.Item label="Metona" value="metona" />

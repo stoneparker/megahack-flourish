@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import Constants from 'expo-constants';
 
 export const FirstBoxDivision = styled.View`
     flex: 3;
