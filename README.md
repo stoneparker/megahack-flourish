@@ -15,5 +15,5 @@ O servidor será escrito em [Javascript](https://www.javascript.com/), linguagem
 ### <img src="https://symbols.getvecta.com/stencil_73/32_adonisjs-icon.95407caf46.svg" alt="AdonisJS" width="25px" align="center">  AdonisJS
 [AdonisJS](https://adonisjs.com/) é um framework focado na construção de aplicações server-side, implementando facilmente micro-serviços
 
-### <img src="https://www.stickpng.com/assets/images/5848104fcef1014c0b5e4950.png" alt="MySQL" width="27px" align="center">  MySQL
+### <img src="https://altyra.com/wp-content/uploads/2018/11/mysql-logo-png-transparent.png" alt="MySQL" width="27px" align="center">  MySQL
 [MySQL](https://www.mysql.com/) é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL como interface. É atualmente um dos sistemas de gerenciamento de bancos de dados mais populares da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
