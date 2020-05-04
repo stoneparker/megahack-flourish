@@ -39,6 +39,8 @@ export default function Home() {
   const [goals, setGoals] = useState([]);
   const [debts, setDebts] = useState([]);
   const [sectors, setSectors] = useState([]);
+  const [deleteThis, setDeleteThis] = useState('');
+  const [routeToDelete, setRouteToDelete] = useState('');
 
   const navigation = useNavigation();
 
@@ -58,8 +60,10 @@ export default function Home() {
     setModalMenuVisible(!modalMenuVisible);
   }
 
-  function openModalDelete() {
+  function openModalDelete(id, route) {
     setModalDeleteVisible(!modalDeleteVisible);
+    setDeleteThis(id);
+    setRouteToDelete(route);
   }
 
   const data = {
@@ -74,7 +78,6 @@ export default function Home() {
     setGoals(responseGoals.data);
     setSectors(responseSectors.data);
     setDebts(responseDebts.data);
-    console.log(debts);
   }
 
   useEffect(() => {
@@ -99,7 +102,7 @@ export default function Home() {
             <CardsContainer>
               <FlatList 
                 data={sectors}
-                keyExtractor={item => String(item)}
+                keyExtractor={sector => String(sector.id_cost_type)}
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 renderItem={({ item: sector }) => (
@@ -116,7 +119,7 @@ export default function Home() {
             <CardsContainer>
               <FlatList 
                 data={goals}
-                keyExtractor={item => String(item)}
+                keyExtractor={goal => String(goal.id_goal)}
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 renderItem={({ item: goal }) => (
@@ -134,7 +137,7 @@ export default function Home() {
             <CardsContainer>
               <FlatList 
                 data={debts}
-                keyExtractor={item => String(item)}
+                keyExtractor={debt => String(debt.id_debts)}
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 renderItem={({ item: debt }) => (
@@ -150,7 +153,7 @@ export default function Home() {
                     </View>
                     <IconsCard>
                       <Feather name="edit" color="#fff" size={30} />
-                      <Feather name="trash-2" color="#fff" size={30} onPress={openModalDelete} />
+                      <Feather name="trash-2" color="#fff" size={30} onPress={() => openModalDelete(debt.id_debts, 'debt')} />
                     </IconsCard>
                   </Card>
                 )}
@@ -165,7 +168,7 @@ export default function Home() {
       </PlusButton>
 
       <ModalMenu setModalMenuVisible={setModalMenuVisible} isVisible={modalMenuVisible} />
-      <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} />
+      <ModalDelete setModalDeleteVisible={setModalDeleteVisible} isVisible={modalDeleteVisible} setDeleteThis={setDeleteThis} deleteThis={deleteThis} routeToDelete={routeToDelete} setRouteToDelete={setRouteToDelete} />
 
     </Container>
   );
