@@ -13,7 +13,7 @@ A principal tecnologia utilizada no servidor é o [Node.js](https://nodejs.org/e
 O servidor será escrito em [Javascript](https://www.javascript.com/), linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma.
 
 ### <img src="https://symbols.getvecta.com/stencil_73/32_adonisjs-icon.95407caf46.svg" alt="AdonisJS" width="25px" align="center">  AdonisJS
-[AdonisJS](https://adonisjs.com/) é um framework focado na construção de aplicações server-side, implementando facilmente micro-serviços
+[AdonisJS](https://adonisjs.com/) é um framework focado na construção de aplicações server-side e implementando facilmente micro-serviços.
 
 ### <img src="https://www.klipfolio.com/sites/default/files/integrations/My-SqlLogo.png" alt="MySQL" width="27px" align="center">  MySQL
 [MySQL](https://www.mysql.com/) é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL como interface. É atualmente um dos sistemas de gerenciamento de bancos de dados mais populares da Oracle Corporation, com mais de 10 milhões de instalações pelo mundo.
