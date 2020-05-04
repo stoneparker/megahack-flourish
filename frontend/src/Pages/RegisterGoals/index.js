@@ -29,7 +29,7 @@ export default function RegisterGoals() {
       rent: userRent
     });
 
-    JSON.parse(UserCosts).map(({itemName, itemValue})=> {
+    JSON.parse(UserCosts).map(async ({itemName, itemValue})=> {
       let name = itemName;
       let value = itemValue;
       await api.post(`/user/${responseUserData.data.id}/cost_type`, {
@@ -38,7 +38,7 @@ export default function RegisterGoals() {
       });
     });
 
-    JSON.parse(userDebts).map(({itemName, itemValue})=> {
+    JSON.parse(userDebts).map(async ({itemName, itemValue})=> {
         let name = itemName;
         let value = itemValue;
         await api.post(`/user/${responseUserData.data.id}/debt`, {
