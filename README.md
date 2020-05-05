@@ -7,8 +7,9 @@ Pensando nisso, criamos o Finances For Teens - Fifteen -, um aplicativo de inter
 
 ## Plataformas
 **Aplicativo Mobile**: O Fifteen disponibilizará métodos práticos ao usuário de como fazer o controle de suas finanças, como a criação de gastos (fixos e variaváveis), dívidas e metas, além de uma analise geral de como está seu desempenho.  
-**Web**: O Fifteen contará com uma extensão no Google Chrome que possibilitará o monitoramento do usuário em sites que possam atrapalhar sua jornada de controle de finanças
+**Web**: O Fifteen contará com uma extensão no Google Chrome que possibilitará o monitoramento do usuário em sites que possam atrapalhar sua jornada de controle de finanças.
 
+Para saber mais, acesse: https://www.youtube.com/watch?v=yKgShFfaMNc
 ## 💻 Tecnologias do Servidor
 
 ### <img src="https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/14/thumb_bigger_formation-node-js.png" alt="React Native" width="25px" align="center"> Node.js
