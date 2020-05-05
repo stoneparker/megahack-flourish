@@ -41,5 +41,5 @@ Roteamento e navegação para aplicativos [React Native](https://reactnative.dev
 ### <img src="https://i.ya-webdesign.com/images/global-icon-png-7.png" alt="Axios" width="25px" align="center"> Axios
 [Axios](https://github.com/axios/axios) é um cliente HTTP para comunicação com o servidor.
 
-A prototipação das telas foi feita pela [FIGMA](https://www.figma.com/proto/OQUUS1DNgIlrMhTzJQBYpc/Flourish?node-id=0%3A1&scaling=scale-down).
+Link para visualizar a prototipação das telas feitas com a ferramente FIGMA: https://www.figma.com/proto/OQUUS1DNgIlrMhTzJQBYpc/Flourish?node-id=0%3A1&scaling=scale-down
 
