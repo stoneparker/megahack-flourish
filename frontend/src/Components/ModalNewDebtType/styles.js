@@ -60,6 +60,8 @@ export const Input = styled.TextInput`
      margin-bottom: 17px;
      background: #51B2BC;
      border-radius: 30px;
+     font-family: 'Fredoka One';
+     font-size: 18px;
 `;
 
 export const ListPicker = styled.View`
@@ -71,6 +73,7 @@ export const ListPicker = styled.View`
      padding: 0 10px;
      margin-bottom: 17px;
 `;
+
 export const Picker = styled.Picker`
      color: #fff;
      font-family: 'Fredoka One';

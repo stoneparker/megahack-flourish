@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { Input, DataInput, GenInput } from '../../Components/Input';
 import { Container, Title, Label } from '../../Utils/Styles/GlobalStyles';
 import Header from '../../Components/Header';
 import Button from '../../Components/Button';
+import { Input } from '../../Components/Input';
+import DateInputModal from '../../Components/DateInput';
+import SelectInput from '../../Components/SelectInput';
 
 import { Box, GenTitle, FirstBoxDivision, SecondBoxDivision } from './styles';
 
@@ -25,7 +27,7 @@ export default function Register() {
   }
   
   async function registerUser() {
-    if(username === '' || email === '' || password === '' || confirmPassword === '' || birth_date === '' || genre === '') {
+    if(username === '' || email === '' || password === '' || confirmPassword === '' || birth_date === '') {
       alert('Preencha todos os campos.');
       return;
     }
@@ -51,6 +53,24 @@ export default function Register() {
     }
   }
 
+  const dataGenre = [
+    {
+      label: 'M',
+      value: 'M',
+      key: 'item-1',
+    },
+    {
+      label: 'F',
+      value: 'F',
+      key: 'item-2',
+    },
+    {
+      label: 'O',
+      value: 'O',
+      key: 'item-3',
+    }
+  ]
+
   return (
     <Container>
         <Header title="Complete com suas informações..." />
@@ -71,11 +91,14 @@ export default function Register() {
       <Box>
         <FirstBoxDivision>
           <Title>Data de Nascimento</Title>
-          <DataInput value={birth_date} onChangeText={setBirthDate} />
+          {(()=>{
+            return Platform.OS==='ios'?<DateInputModal value={birth_date}  onChangeText={setBirthDate} />:<DateInputModal value={birth_date} onDateChange={date => setBirthDate(date)}  />
+          })()}
+          
         </FirstBoxDivision>
         <SecondBoxDivision>
           <GenTitle>Gênero</GenTitle>
-          <GenInput value={genre} onChangeText={setGenre} />
+          <SelectInput selectedValue={genre} setSelectedValue={setGenre} data={dataGenre} />
         </SecondBoxDivision>
       </Box>
 

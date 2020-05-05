@@ -9,7 +9,7 @@ import { Container } from '../../Utils/Styles/GlobalStyles';
 import Header from '../../Components/Header';
 import Button from '../../Components/Button';
 import ModalNewCostType from '../../Components/ModalNewCostType';
-import ModalNewDebt from '../../Components/ModalNewDebt';
+import ModalNewDebt from '../../Components/ModalNewDebtType';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default function RegisterCosts() {

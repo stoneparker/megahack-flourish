@@ -6,7 +6,9 @@ import api from '../../services/api';
 import Header from '../../Components/Header';
 import Button from '../../Components/Button';
 import { Container, Title } from '../../Utils/Styles/GlobalStyles';
-import { Input, SelectInput } from './../../Components/Input';
+import { Input } from '../../Components/Input';
+import SelectInput from '../../Components/SelectInput';
+import DateInputModal from '../../Components/DateInput';
 
 export default function RegisterGoals() {
 
@@ -124,7 +126,10 @@ export default function RegisterGoals() {
       <SelectInput selectedValue={selectedValue} setSelectedValue={setSelectedValue} data={data} />
       
       <Title>Data:</Title>
-      <Input selectedValue={goalDate} setSelectedValue={setGoalDate} />
+      {(()=>{
+            return Platform.OS==='ios'?<DateInputModal style={{width: '90%'}} value={goalDate} onChangeText={setGoalDate} />:<DateInputModal style={{width: '90%'}} value={goalDate} onDateChange={date => setGoalDate(date)} />
+      })()}
+      
 
       <Button onPress={RegisterGoals} background="#FFC326" text="SALVAR E ADICIONAR OUTRO" />
       <Button onPress={registerFullUser} text="FINALIZAR" />

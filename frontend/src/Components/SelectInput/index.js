@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {Platform, View, Button, Picker, StyleSheet} from 'react-native';
+import {Platform, View, Button, Picker, StyleSheet, Text} from 'react-native';
 
-export function SelectInput({selectedValue, setSelectedValue, data}) {
+export default function SelectInput({selectedValue, setSelectedValue, data}) {
     
     const [iosPickerCollapsed, setIosPickerCollapsed] = useState("none");
 
@@ -14,7 +14,7 @@ export function SelectInput({selectedValue, setSelectedValue, data}) {
 
             <View style={[{display: iosPickerCollapsed, padding: 10, backgroundColor: '#ccc'}, styles.containerIOS]}>
                   <View>
-                    <Button style={styles.buttonIOS} color='black' title="Fechar" onPress={()=>{setIosPickerCollapsed('none')}}/>
+                    <Button style={styles.buttonIOS} color='black' title="X" onPress={()=>{setIosPickerCollapsed('none')}}/>
                   </View>
                   <View >
                   <Picker 
