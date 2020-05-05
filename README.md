@@ -42,6 +42,6 @@ Roteamento e navegação para aplicativos [React Native](https://reactnative.dev
 [Axios](https://github.com/axios/axios) é um cliente HTTP para comunicação com o servidor.
 
 ## ❓ Quer saber mais?
-Acesse o link e visualize nosso protótipo:
+Acesse o link e conheça nosso protótipo:
 > https://www.figma.com/proto/OQUUS1DNgIlrMhTzJQBYpc/Flourish?node-id=0%3A1&scaling=scale-down
 
