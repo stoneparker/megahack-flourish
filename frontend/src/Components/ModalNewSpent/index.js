@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-native-modal';
 import { View, TouchableOpacity, Text } from 'react-native';
+import { SelectInput } from '../SelectInput';
 
 import { 
      Content, 
@@ -42,6 +43,28 @@ export default function ModalNewSpent({ setModalNewSpentVisible, isVisible }) {
           setShowDate(true);
      }
 
+     const data = [
+          {
+            label: 'Aluguel',
+            value: 'Aluguel',
+            key: 'item-1',
+          },
+          {
+            label: 'Alimentação',
+            value: 'Alimentação',
+            key: 'item-2',
+          },
+          {
+            label: 'Roupas',
+            value: 'Roupas',
+            key: 'item-3',
+          },
+          {
+            label: 'Educação',
+            value: 'Educação',
+            key: 'item-4',
+          },
+        ]
      return (
           <>
                <Modal isVisible={isVisible}>
@@ -78,14 +101,11 @@ export default function ModalNewSpent({ setModalNewSpentVisible, isVisible }) {
                                         <Label>Tipo de despesa:</Label>
                                    </View>                             
                                    <ListPicker>
-                                        <Picker
+                                        <SelectInput
                                              selectedValue={spentType}
                                              onValueChange={(itemValue, itemIndex) => setSpentType(itemValue)}
-                                        >
-                                             <Picker.Item label="Alimentação" value="alimentação" />
-                                             <Picker.Item label="Transporte" value="transporte" />
-                                             <Picker.Item label="Faculdade" value="faculdade" />
-                                        </Picker>
+                                             data={data}
+                                        />
                                    </ListPicker>
                               </Field>
                               <Options>

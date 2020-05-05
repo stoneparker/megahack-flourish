@@ -42,7 +42,7 @@ export default function RegisterGoals() {
       ...JSON.parse(userData),
       rent: userRent
     });
-
+  
     JSON.parse(userCosts).map(async ({itemName, itemValue})=> {
       let name = itemName;
       let value = itemValue;
@@ -52,33 +52,39 @@ export default function RegisterGoals() {
       });
     });
 
-    JSON.parse(userDebts).map(async ({itemName, itemValue})=> {
-        let name = itemName;
-        let value = itemValue;
-        await api.post(`/user/${responseUserData.data.id}/debt`, {
-          name,
-          value
-        });
-    });
-    
-
-    if(goalName !== '' && goalValue !== '' && goalProportion !== 'Selecione...') {
-      setUserGoals(goals =>  [...goals, {name: goalName, value: goalValue, proportion: selectedValue}]);
-
-    }
-    try {
-    userGoals.map(async ({name, value, proportion})=> {
-      await api.post(`/user/${responseUserData.data.id}/goal`, {
-        name,
-        value,
-        proportion
+    try{
+      JSON.parse(userDebts).map(async ({itemName, itemValue})=> {
+          let name = itemName;
+          let value = itemValue;
+          await api.post(`/user/${responseUserData.data.id}/debt`, {
+            name,
+            value
+          });
       });
-    });
+
     }
     catch {
 
     }
-    await AsyncStorage.setItem('sessionUser', responseUserData.data.id.toString());
+    
+
+    if(goalName !== '' && goalValue !== '' && selectedValue !== 'Selecione...') {
+      setUserGoals(goals =>  [...goals, {name: goalName, value: goalValue, proportion: selectedValue, term: goalDate}]);
+
+    }
+    try {
+    userGoals.map(async ({name, value, proportion, term})=> {
+      await api.post(`/user/${responseUserData.data.id}/goal`, {
+        name,
+        value,
+        proportion,
+        term
+      });
+    });
+    }
+    catch {
+    }
+    await AsyncStorage.setItem('SessionUser', responseUserData.data.id);
     navigation.dispatch(
       CommonActions.reset({
         index: 0,

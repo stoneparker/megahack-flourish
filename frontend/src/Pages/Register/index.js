@@ -27,7 +27,7 @@ export default function Register() {
   }
   
   async function registerUser() {
-    if(username === '' || email === '' || password === '' || confirmPassword === '' || birth_date === '') {
+    if(username === '' || email === '' || password === '' || confirmPassword === '') {
       alert('Preencha todos os campos.');
       return;
     }

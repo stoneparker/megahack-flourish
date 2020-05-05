@@ -41,7 +41,7 @@ export default function Home() {
   const [deleteThis, setDeleteThis] = useState('');
   const [routeToDelete, setRouteToDelete] = useState('');
 
-  const navigate = useNavigation();
+  const navigation = useNavigation();
   function navigateToSector(sector) {
     navigation.navigate('Sector', { sector });
   }
@@ -70,9 +70,10 @@ export default function Home() {
 
   async function loadUserInfos() {
     try {
-      const responseGoals = await api.get('/user/1/goal/1');
-      const responseSectors = await api.get('/user/1/cost_type');
-      const responseDebts = await api.get('/user/1/debt');
+      const id = await AsyncStorage.getItem('SessionUser')
+      const responseGoals = await api.get(`/user/${id}/goal/1`);
+      const responseSectors = await api.get(`/user/${id}/cost_type`);
+      const responseDebts = await api.get(`/user/${id}/debt`);
 
       setGoals(responseGoals.data);
       setSectors(responseSectors.data);

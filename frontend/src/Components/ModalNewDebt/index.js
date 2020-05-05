@@ -20,29 +20,11 @@ import {
      BtnNext
 } from './styles';
 
-export default function ModalNewDebt({ setModalNewDebtVisible, isVisible, onHandledSubmit, data }) {
+export default function ModalNewDebt({ setModalNewDebtVisible, isVisible }) {
      const [name, setName] = useState('');
      const [value, setValue] = useState('');
      const [interest, setInterest] = useState('');
-     const [title, setTitle] = useState('Novo Gasto');
      const [date, setDate] = useState('');
-
-     useEffect(()=>{
-          if(data.name === undefined) {
-               setName('');
-               setValue('');
-               setDate('');
-               setInterest('');
-               setTitle('Nova Dívida');
-          }
-          else {
-               setName(data.name);
-               setValue(data.value);
-               setDate(data.date);
-               setInterest(data.interest);
-               setTitle('Editar Dívida');
-          }
-     }, [data])
 
      function closeModalNew() {
           setModalNewDebtVisible(false);
@@ -75,7 +57,7 @@ export default function ModalNewDebt({ setModalNewDebtVisible, isVisible, onHand
           <Modal isVisible={isVisible}>
                <Filter onPress={() => closeModalNew}>
                     <Content>
-                         <Title>{title}</Title>
+                         <Title>Nova Dívida</Title>
                          
                          <Field>
                               <View style={{ width: '100%' }}>
