@@ -1058,10 +1058,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@react-native-community/art@^1.1.2", "@react-native-community/art@^1.2.0":
+"@react-native-community/art@^1.1.2", "@react-native-community/art@github:react-native-community/art":
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/art/-/art-1.2.0.tgz#386d95393f6042d9006f9d4bc6063fb898794460"
-  integrity sha512-a+ZcRGl/BzLa89yi33Mbn5SHavsEXqKUMdbfLf3U8MDLElndPqUetoJyGkv63+BcPO49UMWiQRP1YUz6/zfJ+A==
+  uid "749985519538c7f8165d0128f07ebc214b06341d"
+  resolved "https://codeload.github.com/react-native-community/art/tar.gz/749985519538c7f8165d0128f07ebc214b06341d"
   dependencies:
     art "^0.10.3"
     invariant "^2.2.4"
@@ -4607,6 +4607,13 @@ react-native-calendars@^1.265.0:
     prop-types "^15.5.10"
     xdate "^0.8.0"
 
+react-native-datepicker-modal@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-datepicker-modal/-/react-native-datepicker-modal-1.3.0.tgz#34f135a00f3d08ca609773f3a958d46694bee9aa"
+  integrity sha512-VUda9oszVgwhJ0q9wRULcxm+e7fb3pZmfYCqNY54C7KmESBXV6IQCeFG/+05Lw7IocW4PxUmFdXovHEYKS5Etw==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-native-datepicker@^1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/react-native-datepicker/-/react-native-datepicker-1.7.2.tgz#58d0822591a0ac9b32aba082650222a0ee29669d"
@@ -5506,9 +5513,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 ua-parser-js@^0.7.18:
-  version "0.7.21"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
-  integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
+  version "0.7.28"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
+  integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==
 
 uglify-es@^3.1.9:
   version "3.3.9"
